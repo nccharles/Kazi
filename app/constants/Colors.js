@@ -1,15 +1,15 @@
-const tintColor = '#009AF4';
+const tintColor = '#2980b9';
 
 export default {
-  primary_blue: "#009AF4",
+  primary_blue: "#2980b9",
   primary_green: "#1C8F31",
   primary_yellow:"#EFEF00",
   primary_white:"#FFFFFF",
-  primary_gradient: ["#009AF4","#1C8F31","#EFEF00"],
-  Swiper_gradient:["#009AF4","#1C8F31"],
+  primary_gradient: ["#2980b9","#1C8F31","#EFEF00"],
+  Swiper_gradient:["#2980b9","#1C8F31"],
   tintColor,
-  tabIconDefault: '#ccc',
-  tabIconSelected: tintColor,
+  tabIconDefault: '#fff',
+  tabIconSelected: "#EFEF00",
   tabBar: '#fefefe',
   errorBackground: 'red',
   errorText: '#fff',

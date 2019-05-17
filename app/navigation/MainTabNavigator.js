@@ -1,10 +1,11 @@
 import React from 'react';
 import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
-import TabBarIcon from '../components/TabBarIcon';
+import TabBarIcon from "../components/TabBar/TabBarIcon"
+import TabBar from "../components/TabBar/TabBar"
 import HomeScreen from '../screens/HomeScreen';
 import MapScreen from '../screens/mapScreen';
-import ChatsScreen from '../screens/Chatlist';
+import ChatsScreen from '../screens/ChatsScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
 const HomeStack = createStackNavigator({
@@ -18,7 +19,7 @@ HomeStack.navigationOptions = {
       focused={focused}
       name={
         Platform.OS === 'ios'
-          ? `ios-briefcase${focused ? '' : '-outline'}`
+          ? 'ios-briefcase'
           : 'md-briefcase'
       }
     />
@@ -70,4 +71,8 @@ export default createBottomTabNavigator({
   ChatsStack,
   MapStack,
   SettingsStack,
-});
+},
+  {
+    tabBarComponent: TabBar,
+  }
+);

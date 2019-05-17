@@ -1,4 +1,5 @@
 import { StyleSheet,Platform } from 'react-native';
+import Colors from '../../constants/Colors';
 export default StyleSheet.create({
     container: {
       flex: 1,
@@ -85,7 +86,29 @@ export default StyleSheet.create({
     },
     helpLinkText: {
       fontSize: 14,
-      color: '#2e78b7',
+      color: Colors.primary_blue,
+    },
+    logo: {
+      color: Colors.primary_yellow,
+      fontSize: 23,
+      margin: 10,
+      marginLeft: 20,
+      fontFamily: 'space-mono',
+    },
+    row: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
+    tabBar: {
+      fontFamily: 'space-mono',
+      fontSize: 15
+    },
+    topBit: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      paddingTop: 30,
+      backgroundColor:Colors.primary_blue,
+      justifyContent: 'space-between'
     },
   });
   

@@ -11,7 +11,7 @@ const AppNavigator = createSwitchNavigator(
         screen: Introduction,
       },
       TabScreen: {
-        screen: MainTabNavigator
+        screen: MainTabNavigator,
       },
     }
   );
