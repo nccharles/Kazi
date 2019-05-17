@@ -31,9 +31,9 @@ console.log(error.message)
             end={{ x: 1, y: 1 }}
             style={styles.slide}
         >
-            <Icon.FontAwesome name={Platform.OS === 'ios' ? "handshake-o" : 'handshake-o'} size={100} color={'#FFFFFF'} />
-            <Text style={styles.header}>Rwanda</Text>
-            <Text style={styles.text}>Known as the land of a thousand hills, Rwanda’s stunning scenery and warm, friendly people offer unique experiences in one of the most remarkable countries in the world.</Text>
+            <Icon.Ionicons name={Platform.OS === 'ios' ? "ios-briefcase" : 'md-briefcase'} size={100} color={'#FFFFFF'} />
+            <Text style={styles.header}>Kazi</Text>
+            <Text style={styles.text}>Create a Profile and get a job</Text>
         </LinearGradient>
         {/* Second screen */}
         <LinearGradient
@@ -42,9 +42,9 @@ console.log(error.message)
             end={{ x: 1.0, y: 0 }}
             style={styles.slide}
         >
-            <Icon.MaterialCommunityIcons name={Platform.OS === 'ios' ? "food-fork-drink" : 'food-fork-drink'} size={100} color={'#FFFFFF'} />
-            <Text style={styles.header}>Feel at home</Text>
-            <Text style={styles.text}>It is blessed with extraordinary biodiversity, with incredible wildlife living throughout its volcanoes, montane rainforest and sweeping plains.</Text>
+            <Icon.Ionicons name={Platform.OS === 'ios' ? "ios-search" : 'md-search'} size={100} color={'#FFFFFF'} />
+            <Text style={styles.header}>Search a best job</Text>
+            {/* <Text style={styles.text}></Text> */}
         </LinearGradient>
         {/* Third screen */}
         <LinearGradient
@@ -53,9 +53,9 @@ console.log(error.message)
             end={{ x: 1.0, y: 0 }}
             style={styles.slide}
         >
-            <Icon.MaterialIcons name={Platform.OS === 'ios' ? "local-hotel" : 'local-hotel'} size={100} color={'#FFFFFF'} />
-            <Text style={styles.header}>Accomodation</Text>
-            <Text style={styles.text}>The most breathtaking lodges in Africa, with just ensuite bedrooms built into the hills.</Text>
+            <Icon.Ionicons name={Platform.OS === 'ios' ? "ios-chatboxes" : 'md-chatboxes'} size={100} color={'#FFFFFF'} />
+            <Text style={styles.header}>Chats</Text>
+            {/* <Text style={styles.text}>The most breathtaking lodges in Africa, with just ensuite bedrooms built into the hills.</Text> */}
         </LinearGradient>
     </Swiper>
     );
