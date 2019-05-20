@@ -37,10 +37,12 @@ export default class App extends React.Component {
       Font.loadAsync({
         // This is the font that we are using for our tab bar
         ...Icon.Ionicons.font,
+        ...Icon.Entypo.font,
         // We include SpaceMono because we use it in HomeScreen.js. Feel free
         // to remove this if you are not using it in your app
         'space-mono': require('./app/assets/fonts/SpaceMono-Regular.ttf'),
-        'Roboto_medium':require('./app/assets/fonts/Roboto-Medium.ttf')
+        'space-mono-bold': require('./app/assets/fonts/SpaceMono-Bold.ttf'),
+        'space-mono-italic': require('./app/assets/fonts/SpaceMono-Italic.ttf'),
       }),
     ]);
   };

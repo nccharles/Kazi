@@ -1,9 +1,10 @@
 import { StyleSheet,Platform } from 'react-native';
 import Colors from '../../constants/Colors';
+// import { Constants } from 'expo';
 export default StyleSheet.create({
     container: {
       flex: 1,
-      paddingTop: 15,
+      paddingTop: 0,
       backgroundColor: '#fff',
     },
     developmentModeText: {
@@ -89,11 +90,11 @@ export default StyleSheet.create({
       color: Colors.primary_blue,
     },
     logo: {
-      color: Colors.primary_yellow,
+      color: Colors.primary_white,
       fontSize: 23,
       margin: 10,
       marginLeft: 20,
-      fontFamily: 'space-mono',
+      fontFamily: 'space-mono-bold',
     },
     row: {
       flexDirection: 'row',
@@ -109,6 +110,9 @@ export default StyleSheet.create({
       paddingTop: 30,
       backgroundColor:Colors.primary_blue,
       justifyContent: 'space-between'
+    },
+    map: {
+      ...StyleSheet.absoluteFillObject
     },
   });
   

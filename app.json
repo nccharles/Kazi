@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "Kazi",
+    "description": "Kazi application.",
     "slug": "Kazi",
     "privacy": "public",
     "sdkVersion": "32.0.0",
@@ -10,20 +11,47 @@
     ],
     "version": "1.0.0",
     "orientation": "portrait",
+    "primaryColor": "#227093",
     "icon": "./app/assets/images/icon.png",
     "splash": {
       "image": "./app/assets/images/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "scheme": "limitlessafricanapps",
     "updates": {
-      "fallbackToCacheTimeout": 0
+      "fallbackToCacheTimeout": 0,
+      "checkAutomatically": "ON_ERROR_RECOVERY"
     },
     "assetBundlePatterns": [
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.limitlessafricanapps.iKazi",
+      "config": {
+        "googleMapsApiKey": "AIzaSyCy6H2ah8PtVYEl6gsbYNGaTCTiZsgPttw"
+      }
+    },
+    "notification": {
+      "icon": "./app/assets/images/icon.png",
+      "color": "#227093",
+      "androidMode": "collapse",
+      "androidCollapsedTitle": "#{unread_notifications} new messages"
+    },
+    "android": {
+      "package": "com.limitlessafricanapps.iKazi",
+      "versionCode": 3,
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "READ_INTERNAL_STORAGE"
+      ],
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyAN6UG11K2foH4nOXtdr4KMmKnCGi8UQB0"
+        }
+      }
     }
   }
 }

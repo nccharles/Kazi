@@ -7,8 +7,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { WebBrowser } from 'expo';
-import { Icon } from 'expo';
+import { Icon,WebBrowser } from 'expo';
 import styles from './styles/style'
 import { MonoText } from '../components/StyledText';
 import Colors from '../constants/Colors';
@@ -19,23 +18,22 @@ export default class HomeScreen extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <View style={styles.topBit}>
         <Text style={styles.logo}>Jobs</Text>
         <View style={styles.row}>
           <TouchableOpacity onPress={()=>alert('done')} >
-            <Icon.Entypo name="briefcase" color={Colors.primary_yellow} size={23} style={{ padding: 20 }} />
+            <Icon.Entypo name="briefcase" color={Colors.primary_white} size={23} style={{ padding: 20 }} />
           </TouchableOpacity>
+
         </View>
       </View>
-        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <View style={styles.welcomeContainer}>
           <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
             <MonoText style={styles.codeHighlightText}>HomeScreen</MonoText>
           </View>
           </View>
-          </ScrollView>
-      </View>
+      </ScrollView>
     );
   }
 
