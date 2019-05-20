@@ -20,7 +20,7 @@ export default class ChatsScreen extends React.Component {
         <Text style={styles.logo}>Chats</Text>
         <View style={styles.row}>
           <TouchableOpacity onPress={()=>alert('done')} >
-            <Icon.Entypo name="briefcase" color={Colors.primary_white} size={23} style={{ padding: 20 }} />
+            <Icon.Entypo name="chat" color={Colors.primary_white} size={23} style={{ padding: 20 }} />
           </TouchableOpacity>
         </View>
       </View>

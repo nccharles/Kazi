@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {
   Image, AsyncStorage,
-  Platform, Text, View, StyleSheet, Dimensions
+  Platform, Text, View, ActivityIndicator, Dimensions
 } from 'react-native'
 import Toast from 'react-native-easy-toast'
 import { Location, Permissions, MapView } from 'expo';
@@ -42,6 +42,10 @@ class MapScreen extends Component {
     return (
       <View style={styles.container}>
         {
+          !latitude ?
+          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <ActivityIndicator size="large" color={Colors.primary_blue} />
+          </View>:
           latitude && <MapView
             style={styles.map}
             initialRegion={{
