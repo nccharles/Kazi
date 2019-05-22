@@ -56,9 +56,9 @@ export default class HomeScreen extends React.Component {
 
             <Animatable.View animation="slideInRight" duration={500} style={{ height: 40,borderBottomWidth:2,borderBottomColor: 'white', backgroundColor: 'transparent', flexDirection: 'row', padding: 2, alignItems: 'center' }}>
               <Animatable.View animation={this.state.searchBarFocused ? "fadeInLeft" : "fadeInRight"} duration={400}>
-                <Icon.Ionicons name={this.state.searchBarFocused ? "md-arrow-back" : "ios-search"} style={{ fontSize: 24 }} />
+                <Icon.Ionicons name={this.state.searchBarFocused ? "md-arrow-back" : "ios-search"} style={{ fontSize: 24,color:'white' }} />
               </Animatable.View>
-              <TextInput placeholder="Search" style={{ fontSize: 24, marginLeft: 15, flex: 1,Color:'white' }} />
+              <TextInput placeholder="Search" style={{ fontSize: 24, marginLeft: 15, flex: 1,color:'white' }} />
             </Animatable.View>
         </View>
         <FlatList

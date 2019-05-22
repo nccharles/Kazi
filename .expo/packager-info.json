@@ -1,9 +1,9 @@
 {
   "devToolsPort": 19002,
   "expoServerPort": 19000,
-  "packagerPort": 19003,
-  "packagerPid": 9328,
+  "packagerPort": 19001,
+  "packagerPid": 766,
   "expoServerNgrokUrl": "https://8c-uxj.nccharles.kazi.exp.direct",
   "packagerNgrokUrl": "https://packager.8c-uxj.nccharles.kazi.exp.direct",
-  "ngrokPid": 9371
+  "ngrokPid": 888
 }
