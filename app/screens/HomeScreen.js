@@ -52,13 +52,13 @@ export default class HomeScreen extends React.Component {
             </TouchableOpacity>
           </View>
         </View>
-        <View style={{ height: 80, backgroundColor: Colors.primary_blue, justifyContent: 'center', paddingHorizontal: 5 }}>
+        <View style={{ height: 50, backgroundColor: Colors.primary_blue, justifyContent: 'center', paddingHorizontal: 5 }}>
 
-            <Animatable.View animation="slideInRight" duration={500} style={{ height: 50, backgroundColor: 'white', flexDirection: 'row', padding: 5, alignItems: 'center' }}>
+            <Animatable.View animation="slideInRight" duration={500} style={{ height: 40,borderBottomWidth:2,borderBottomColor: 'white', backgroundColor: 'transparent', flexDirection: 'row', padding: 2, alignItems: 'center' }}>
               <Animatable.View animation={this.state.searchBarFocused ? "fadeInLeft" : "fadeInRight"} duration={400}>
                 <Icon.Ionicons name={this.state.searchBarFocused ? "md-arrow-back" : "ios-search"} style={{ fontSize: 24 }} />
               </Animatable.View>
-              <TextInput placeholder="Search" style={{ fontSize: 24, marginLeft: 15, flex: 1 }} />
+              <TextInput placeholder="Search" style={{ fontSize: 24, marginLeft: 15, flex: 1,Color:'white' }} />
             </Animatable.View>
         </View>
         <FlatList

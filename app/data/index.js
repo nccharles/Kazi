@@ -1,7 +1,7 @@
 import _ from "lodash";
 import users from "./users";
 
-const contains = ({ name, email }, query) => {
+export const contains = ({ name, email }, query) => {
   const { first, last } = name;
   if (first.includes(query) || last.includes(query) || email.includes(query)) {
     return true;
@@ -10,7 +10,8 @@ const contains = ({ name, email }, query) => {
   return false;
 };
 
-export const getUsers = (limit = 40, query = "") => {
+export const getUsers = (limit = 20, query = "") => {
+  console.log("api called:",query)
   return new Promise((resolve, reject) => {
     if (query.length === 0) {
       resolve(_.take(users, limit));
