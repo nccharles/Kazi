@@ -17,7 +17,7 @@ HomeStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name="suitcase"
+      name={Platform.os==='ios'?'ios-business':'md-business'}
     />
   ),
 };
@@ -30,7 +30,7 @@ ChatsStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name="chat"
+      name={Platform.os==='ios'?'ios-chatbubbles':'md-chatbubbles'}
     />
   ),
 };
@@ -43,7 +43,7 @@ MapStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name="globe"
+      name={Platform.os==='ios'?'ios-globe':'md-globe'}
     />
   ),
 };
@@ -57,7 +57,7 @@ ProfileStack.navigationOptions = {
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name="user"
+      name={Platform.os==='ios'?'ios-contact':'md-contact'}
     />
   ),
 };

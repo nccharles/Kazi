@@ -1,19 +1,36 @@
 import React from 'react';
-import { createAppContainer,createSwitchNavigator } from 'react-navigation';
+import { createAppContainer, createSwitchNavigator, createStackNavigator } from 'react-navigation';
 
 import MainTabNavigator from './MainTabNavigator';
 import Introduction from '../Welcome/Welcome';
-
-
-const AppNavigator = createSwitchNavigator(
-    {
-      IntroScreen:{
-        screen: Introduction,
-      },
-      TabScreen: {
-        screen: MainTabNavigator,
-      },
+import SignupScreen from '../screens/signupScreen';
+import NotificationScreen from '../screens/Notifications';
+const StackNavigator = createStackNavigator(
+  {
+    HomeScreen: {
+      screen: MainTabNavigator,
+    },
+    Notification: {
+      screen: NotificationScreen,
+    },
+  },{
+    headerMode: 'none',
+    navigationOptions: {
+        headerVisible: false,
     }
-  );
-  const AppContainer = createAppContainer(AppNavigator);
-  export default AppContainer;
+  });
+const SwithNavigator = createSwitchNavigator(
+  {
+    IntroScreen: {
+      screen: Introduction,
+    },
+    SignScreen: {
+      screen: SignupScreen,
+    },
+    TabScreen: {
+      screen: StackNavigator,
+    },
+  }
+);
+const AppContainer = createAppContainer(SwithNavigator);
+export default AppContainer;

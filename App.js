@@ -1,8 +1,9 @@
 import React from 'react';
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { AppLoading, Asset, Font, Icon } from 'expo';
 import AppNav from './app/index.js'
 import Colors from './app/constants/Colors.js';
+import GeneralStatusBarColor from './app/components/StatusBar/GeneralStatusBarColor.js';
 export default class App extends React.Component {
   state = {
     isLoadingComplete: false,
@@ -20,7 +21,8 @@ export default class App extends React.Component {
     } else {
       return (
         <View style={styles.container}>
-          {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+          <GeneralStatusBarColor backgroundColor={Colors.primary}
+      barStyle="light-content"/>
           <AppNav/>
         </View>
       );
@@ -32,6 +34,7 @@ export default class App extends React.Component {
       Asset.loadAsync([
         require('./app/assets/images/icon.png'),
         require('./app/assets/images/splash.png'),
+        require('./app/assets/images/user-add.png'),
         require('./app/assets/images/map.png'),
       ]),
       Font.loadAsync({

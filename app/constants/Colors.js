@@ -1,25 +1,27 @@
-const tintColor = '#2980b9';
-
+const tintColor = '#227093';
+const primary="#227093";
+const secondary='#16a085';
+const third="#b8e994";
+const primary_white="#FFFFFF";
+const primary_gray="#a4b0be";
+const primary_black="#000000"
 export default {
-  primary_blue: "#2980b9",
-  primary_green: "#1C8F31",
-  primary_yellow:"#f39c12",
-  primary_white:"#FFFFFF",
-  primary_gradient: [
-  "#17C8FF",
-  "#329BFF",
-  "#4C64FF",
-  "#6536FF",
-  "#8000FF"],
-  Swiper_gradient:["#2980b9","#1C8F31"],
+  primary,
+  secondary,
+  third,
+  primary_white,
+  primary_gray,
+  primary_black,
+  primary_gradient: [third,secondary,primary],
+  Swiper_gradient:[primary,third],
   tintColor,
-  tabIconDefault: '#fff',
-  tabIconSelected: "#f39c12",
-  tabBar: '#fefefe',
-  errorBackground: 'red',
-  errorText: '#fff',
+  tabIconDefault: primary_gray,
+  tabIconSelected: primary,
+  tabBar: primary_white,
+  errorBackground: '#c23616',
+  errorText: primary_white,
   warningBackground: '#EAEB5E',
   warningText: '#666804',
-  noticeBackground: tintColor,
-  noticeText: '#fff',
+  noticeBackground: primary,
+  noticeText: primary_white,
 };

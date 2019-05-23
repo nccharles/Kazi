@@ -52,7 +52,7 @@ export default class App extends Component {
 		if (!checkedSignIn) {
 			return (
 				<View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-					<ActivityIndicator size="large" color={Colors.primary_green} />
+					<ActivityIndicator size="large" color={Colors.secondary} />
 				</View>
 			)
 		}

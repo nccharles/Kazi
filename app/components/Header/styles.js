@@ -1,6 +1,6 @@
 
 import { StyleSheet, Dimensions } from 'react-native'
-import { Colors } from '../../Assets/Themes'
+import Colors from '../../constants/Colors';
 
 const screenWidth = Dimensions.get('window').width
 const screenheight = Dimensions.get('window').height
@@ -8,8 +8,8 @@ const screenheight = Dimensions.get('window').height
 export default StyleSheet.create({
 
     container: {
-        backgroundColor: Colors.primary,
-        height: screenheight / 8,
+        backgroundColor: Colors.primary_white,
+        height: screenheight / 10,
         width: screenWidth,
         elevation: 3,
     },
@@ -22,12 +22,12 @@ export default StyleSheet.create({
     wrapper: {
         flex: 1,
         flexDirection: 'row',
-        marginTop: screenheight / 17,
+        marginTop: 15,
     },
     title: {
-        color: Colors.primaryWhite,
+        color: Colors.primary,
         fontSize: screenWidth / 20,
-        fontFamily: 'space-mono-Bold',
+        fontWeight: '500',
         marginLeft: 15
     },
     buttonContainer: {
@@ -37,10 +37,10 @@ export default StyleSheet.create({
     },
     ChatStatus: {
         flexDirection: 'column',
-        color: Colors.primaryWhite,
+        color: Colors.primary,
         marginLeft: 15,
         top: -2,
-        fontFamily: 'space-mono-Bold',
+        fontFamily: 'space-mono-bold',
         marginBottom: 6,
     },
     forexInfo: {
@@ -52,14 +52,14 @@ export default StyleSheet.create({
         paddingRight: 10
     },
     chattitle: {
-        color: Colors.primaryWhite,
-        fontFamily: 'space-mono-Bold',
+        color: Colors.primary,
+        fontFamily: 'space-mono-bold',
     },
     forexTitle: {
-        color: Colors.primaryWhite,
+        color: Colors.primary,
         fontSize: screenWidth / 20,
         marginRight: 20,
-        fontFamily: 'space-mono-Bold',
+        fontFamily: 'space-mono-bold',
     },
     forexOptions: {
         fontSize: 12,
@@ -68,19 +68,19 @@ export default StyleSheet.create({
         height: screenWidth / 18,
     },
     StatusText: {
-        color: Colors.primaryWhite,
+        color: Colors.primary,
     },
     button: {
         marginRight: 35
     },
     image1: {
-        tintColor: Colors.primaryWhite,
+        tintColor: Colors.primary,
         width: screenWidth / 14,
         height: screenWidth / 14,
         marginVertical: 2.5
     },
     image2: {
-        tintColor: Colors.primaryWhite,
+        tintColor: Colors.primary,
         width: screenWidth / 16,
         height: screenWidth / 16,
         marginVertical: 5

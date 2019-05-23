@@ -21,7 +21,7 @@ const inputs = [
   }
 ];
 const screenwidth = Dimensions.get('window').width
-export default class App extends React.Component {
+export default class SignupScreen extends React.Component {
   static navigationOptions = {
     header:null
   };

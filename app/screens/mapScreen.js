@@ -44,7 +44,7 @@ class MapScreen extends Component {
         {
           !latitude ?
           <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <ActivityIndicator size="large" color={Colors.primary_blue} />
+            <ActivityIndicator size="large" color={Colors.primary} />
           </View>:
           latitude && <MapView
             style={styles.map}
@@ -61,7 +61,7 @@ class MapScreen extends Component {
           </MapView>
         }
         <Toast ref="toast"
-          style={{ backgroundColor: Colors.primary_blue }}
+          style={{ backgroundColor: Colors.primary }}
           position='bottom'
           positionValue={200}
           fadeInDuration={750}

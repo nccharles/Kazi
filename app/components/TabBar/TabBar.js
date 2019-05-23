@@ -29,7 +29,8 @@ const S = StyleSheet.create({
     height: 52,
     elevation: 3,
     alignItems: "center",
-    backgroundColor:Colors.tintColor
+    backgroundColor:Colors.primary_white
+
   },
   tabButton: { flex: 1 },
   spotLight: {
@@ -42,7 +43,7 @@ const S = StyleSheet.create({
     width: 40,
     height: 40,
     borderTopWidth: 2,
-    borderTopColor: Colors.primary_yellow,
+    borderTopColor: Colors.primary,
   },
   scaler: { flex: 1, alignItems: "center", justifyContent: "center" }
 });

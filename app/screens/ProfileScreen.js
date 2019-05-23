@@ -16,7 +16,7 @@ export default class Profile extends Component {
     return (
       <View style={styles.container}>
           <View style={styles.header}></View>
-          <Image style={styles.avatar} source={{uri: 'https://bootdey.com/img/Content/avatar/avatar6.png'}}/>
+          <Image style={styles.avatar} source={require('../assets/images/user-add.png')}/>
           <View style={styles.body}>
             <View style={styles.bodyContent}>
               <Text style={styles.name}>Charles NDAYISABA</Text>
@@ -38,7 +38,7 @@ export default class Profile extends Component {
 
 const styles = StyleSheet.create({
   header:{
-    backgroundColor: Colors.primary_blue,
+    backgroundColor: Colors.primary,
     height:200,
   },
   avatar: {
@@ -46,7 +46,8 @@ const styles = StyleSheet.create({
     height: 130,
     borderRadius: 63,
     borderWidth: 4,
-    borderColor: "white",
+    borderColor: Colors.primary_white,
+    backgroundColor:Colors.primary_white,
     marginBottom:10,
     alignSelf:'center',
     position: 'absolute',
@@ -68,7 +69,7 @@ const styles = StyleSheet.create({
   },
   info:{
     fontSize:14,
-    color: Colors.primary_blue,
+    color: Colors.primary,
     marginTop:10,
     fontFamily: 'space-mono',
   },
@@ -88,7 +89,7 @@ const styles = StyleSheet.create({
     marginBottom:20,
     width:250,
     borderRadius:30,
-    backgroundColor: Colors.primary_blue,
+    backgroundColor: Colors.primary,
   },
   buttonText:{
     color:Colors.primary_white,

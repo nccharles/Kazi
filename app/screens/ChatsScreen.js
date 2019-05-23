@@ -6,6 +6,8 @@ import {
   View,
   FlatList,
   ActivityIndicator,
+  Platform,
+  Alert,
   SafeAreaView
 } from "react-native";
 import _ from "lodash";
@@ -96,12 +98,12 @@ export default class ChatsScreen extends React.Component {
         <View style={styles.topBit}>
           <Text style={styles.logo}>Chats</Text>
           <View style={styles.row}>
-            <TouchableOpacity onPress={() => alert('done')} >
-              <Icon.Entypo name="chat" color={Colors.primary_white} size={23} style={{ padding: 20 }} />
+            <TouchableOpacity onPress={() => Alert.alert('Chats','No Chats yet.')} >
+              <Icon.Ionicons name={Platform.os==='ios'?'ios-add-circle-outline':'md-add-circle-outline'} color={Colors.primary} size={20} style={{ padding: 20 }} />
             </TouchableOpacity>
           </View>
         </View>
-        <SearchBar ref={search => this.search = search} value={search} onChangeText={this.handleSearch} placeholder="Search..." lightTheme />
+        {/* <SearchBar ref={search => this.search = search} value={search} onChangeText={this.handleSearch} placeholder="Search..." lightTheme />
         <SafeAreaView>
           <List>
             <FlatList
@@ -120,7 +122,10 @@ export default class ChatsScreen extends React.Component {
               ListFooterComponent={this.renderFooter}
             />
           </List>
-        </SafeAreaView>
+        </SafeAreaView> */}
+         <View style={styles.caption}>
+        <Text style={styles.empty}>No Chats yet!</Text>
+      </View>
       </View>
 
     );
