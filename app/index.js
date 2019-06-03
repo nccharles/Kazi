@@ -18,7 +18,7 @@ export default class App extends Component {
 		firebase.initializeApp({
 			apiKey: "AIzaSyCt0uUN0ahM7XxBQmcoBjEUHdUpB0Z5FZk",
 			authDomain: "kazi-3b634.firebaseapp.com",
-			databaseURL: "https://forexapp-827c1.firebaseio.com",
+			databaseURL: "https://kazi-3b634.firebaseio.com",
 			projectId: "kazi-3b634",
 			storageBucket: "kazi-3b634.appspot.com",
 			messagingSenderId: "184397159584"

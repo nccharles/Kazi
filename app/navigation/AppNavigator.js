@@ -3,8 +3,9 @@ import { createAppContainer, createSwitchNavigator, createStackNavigator } from 
 
 import MainTabNavigator from './MainTabNavigator';
 import Introduction from '../Welcome/Welcome';
-import SignupScreen from '../screens/signupScreen';
+import SignupScreen from '../screens/signup/signupScreen';
 import NotificationScreen from '../screens/Notifications';
+import LoginScreen from '../screens/signup/LoginScreen';
 const StackNavigator = createStackNavigator(
   {
     HomeScreen: {
@@ -13,19 +14,34 @@ const StackNavigator = createStackNavigator(
     Notification: {
       screen: NotificationScreen,
     },
-  },{
+  }, {
     headerMode: 'none',
     navigationOptions: {
-        headerVisible: false,
+      headerVisible: false,
     }
   });
+const SignStackNavigator = createStackNavigator(
+  {
+    Login: {
+      screen: LoginScreen
+    },
+    Signup: {
+      screen: SignupScreen,
+    },
+  }, {
+    headerMode: 'none',
+    navigationOptions: {
+      headerVisible: false,
+    }
+  })
 const SwithNavigator = createSwitchNavigator(
   {
     IntroScreen: {
       screen: Introduction,
     },
+
     SignScreen: {
-      screen: SignupScreen,
+      screen: SignStackNavigator,
     },
     TabScreen: {
       screen: StackNavigator,

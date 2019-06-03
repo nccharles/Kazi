@@ -15,7 +15,7 @@ export default class Introduction extends Component {
   }
 _handleUser=async()=>{
 await AsyncStorage.setItem(userChoice,'true').then(()=>{
-    this.props.navigation.navigate('TabScreen')
+    this.props.navigation.navigate('SignScreen')
     
 }).catch(error=>{
 console.log(error.message)

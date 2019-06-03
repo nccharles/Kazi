@@ -1,6 +1,7 @@
-import { StyleSheet, Platform } from 'react-native';
+import { StyleSheet, Platform ,Dimensions} from 'react-native';
 import Colors from '../../constants/Colors';
 // import { Constants } from 'expo';
+const {width, height}=Dimensions.get('window');
 export default StyleSheet.create({
   container: {
     flex: 1,
@@ -101,5 +102,20 @@ export default StyleSheet.create({
     flex:1,
     alignSelf:'center',
     justifyContent:'center',
-  }
+  },
+  input: {
+    color: Colors.primary_white,
+    borderRadius: 5,
+    marginBottom: height * .05,
+    alignSelf: 'center',
+    height: height / 16,
+    width: width - 50,
+    fontFamily: 'space-mono',
+},
+inputStyle: {
+    color: '#333',
+    textDecorationLine: 'none',
+    fontFamily: 'space-mono',
+},
+
 });
