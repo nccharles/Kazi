@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, TextInput, Animated, Dimensions, Platform, KeyboardAvoidingView, Text } from 'react-native';
-import { LinearGradient } from 'expo'
+import { LinearGradient } from 'expo-linear-gradient'
 import { Input } from "react-native-elements";
 import Colors from '../../constants/Colors';
 import Button from '../../components/Buttons/Start';

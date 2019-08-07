@@ -16,7 +16,7 @@ import Toast from 'react-native-easy-toast'
 import Spinner from 'react-native-loading-spinner-overlay';
 import Form from 'react-native-form';
 import CountryPicker from 'react-native-country-picker-modal';
-import { LinearGradient } from "expo";
+import { LinearGradient } from 'expo-linear-gradient'
 import { userPhone, userName, userCountry } from '../../constants/util'
 //backend imports 
 import * as firebase from 'firebase'
