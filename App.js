@@ -1,6 +1,10 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { AppLoading, Asset, Font, Icon } from 'expo';
+import { AppLoading } from 'expo';
+import { Asset } from 'expo-asset'
+import * as Font from 'expo-font'
+import * as Icon from '@expo/vector-icons'
+
 import AppNav from './app/index.js'
 import Colors from './app/constants/Colors.js';
 import GeneralStatusBarColor from './app/components/StatusBar/GeneralStatusBarColor.js';

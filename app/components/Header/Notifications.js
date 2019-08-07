@@ -3,8 +3,7 @@ import PropTypes from 'prop-types'
 import {
   View, Text, Image,Platform, TouchableOpacity
 } from 'react-native';
-import {Icon } from 'expo'
-
+import * as Icon from '@expo/vector-icons'
 import styles from './styles'
 import Colors from '../../constants/Colors';
 

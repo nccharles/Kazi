@@ -11,15 +11,22 @@
     "preset": "jest-expo"
   },
   "dependencies": {
-    "@expo/samples": "2.1.1",
-    "expo": "^32.0.0",
+    "@expo/samples": "~3.0.0",
+    "@expo/vector-icons": "^10.0.1",
+    "expo": "^33.0.0",
     "firebase": "^5.8.3",
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
     "native-base": "^2.11.0",
     "prop-types": "^15.7.2",
-    "react": "16.5.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
+    "expo-asset": "^5.0.0",
+    "expo-constants": "^5.0.0",
+    "expo-font": "^5.0.0",
+    "expo-web-browser": "^5.0.0",
+    "react": "16.8.3",
+    "react-dom": "^16.8.6",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
+    "react-native-web": "^0.11.4",
     "react-native-animatable": "^1.3.2",
     "react-native-awesome-alerts": "^1.2.0",
     "react-native-camera-roll-picker": "^1.2.3",
@@ -48,8 +55,8 @@
   },
   "devDependencies": {
     "babel-plugin-module-resolver": "^3.2.0",
-    "babel-preset-expo": "^5.0.0",
-    "jest-expo": "32.0.0",
+    "babel-preset-expo": "^5.1.0",
+    "jest-expo": "^33.0.0",
     "schedule": "^0.4.0"
   },
   "private": true
