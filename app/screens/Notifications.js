@@ -10,7 +10,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { Icon } from 'expo';
+import * as Icon from '@expo/vector-icons'
 import styles from './styles/style'
 import Colors from '../constants/Colors';
 import Header from '../components/Header/Notifications';

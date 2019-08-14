@@ -10,7 +10,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { Icon } from 'expo';
+import * as Icon from '@expo/vector-icons'
 import styles from './styles/style'
 import { data } from '../data/joblist';
 import * as Animatable from 'react-native-animatable'

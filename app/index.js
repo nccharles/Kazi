@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, ActivityIndicator, AsyncStorage } from 'react-native'
-import { userChoice } from './constants/util';
+import { userChoice, userPhone } from './constants/util';
 import Colors from './constants/Colors';
 import * as firebase from 'firebase'
 import AppContainer from './navigation/AppNavigator';
@@ -23,27 +23,35 @@ export default class App extends Component {
 			storageBucket: "kazi-3b634.appspot.com",
 			messagingSenderId: "184397159584"
 		});
-        const retrieveduserChoice = await AsyncStorage.getItem(userChoice);
-        setTimeout(() => {
-		if (retrieveduserChoice === 'true') {
-			this.setState({
-				checkedSignIn: true,
-            })
-            this.navigator &&
-            this.navigator.dispatch(
-              NavigationActions.navigate({ routeName: "TabScreen" })
-            );
-
-		} else {
-			this.setState({
-				checkedSignIn: true,
-            })
-            this.navigator &&
-            this.navigator.dispatch(
-              NavigationActions.navigate({ routeName: "IntroScreen" })
-            );
-        }
-    },5000)
+		const retrieveduserChoice = await AsyncStorage.getItem(userChoice);
+		const userPhoneNumber = await AsyncStorage.getItem(userPhone)
+		setTimeout(() => {
+			if (retrieveduserChoice === 'true') {
+				this.setState({
+					checkedSignIn: true,
+				})
+				this.navigator &&
+					this.navigator.dispatch(
+						NavigationActions.navigate({ routeName: "TabScreen" })
+					);
+			} else if (userPhoneNumber) {
+				this.setState({
+					checkedSignIn: true,
+				})
+				this.navigator &&
+					this.navigator.dispatch(
+						NavigationActions.navigate({ routeName: "Signup" })
+					);
+			} else {
+				this.setState({
+					checkedSignIn: true,
+				})
+				this.navigator &&
+					this.navigator.dispatch(
+						NavigationActions.navigate({ routeName: "IntroScreen" })
+					);
+			}
+		}, 5000)
 
 	}
 
@@ -59,8 +67,8 @@ export default class App extends Component {
 
 		return (
 			<AppContainer ref={nav => {
-                this.navigator = nav;
-              }}/>
+				this.navigator = nav;
+			}} />
 		);
 	}
 }
