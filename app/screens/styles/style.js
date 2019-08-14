@@ -1,7 +1,7 @@
-import { StyleSheet, Platform ,Dimensions} from 'react-native';
+import { StyleSheet, Platform, Dimensions } from 'react-native';
 import Colors from '../../constants/Colors';
 // import { Constants } from 'expo';
-const {width, height}=Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 export default StyleSheet.create({
   container: {
     flex: 1,
@@ -93,15 +93,15 @@ export default StyleSheet.create({
   map: {
     ...StyleSheet.absoluteFillObject
   },
-  empty:{
+  empty: {
     textAlign: 'center',
-    color:Colors.primary_gray,
-    fontFamily:'space-mono-italic'
+    color: Colors.primary_gray,
+    fontFamily: 'space-mono-italic'
   },
-  caption:{
-    flex:1,
-    alignSelf:'center',
-    justifyContent:'center',
+  caption: {
+    flex: 1,
+    alignSelf: 'center',
+    justifyContent: 'center',
   },
   input: {
     color: Colors.primary_white,
@@ -111,11 +111,30 @@ export default StyleSheet.create({
     height: height / 16,
     width: width - 50,
     fontFamily: 'space-mono',
-},
-inputStyle: {
+  },
+  inputStyle: {
     color: '#333',
     textDecorationLine: 'none',
     fontFamily: 'space-mono',
-},
-
+  },
+  picker: {
+    borderRadius: 5,
+    color: Colors.primary_white,
+    width: width - 60,
+    marginHorizontal: width / 12,
+    fontFamily: 'space-mono',
+    height: 40,
+    borderTopWidth: 1,
+    borderTopColor: 'gray',
+    borderRightWidth: 1,
+    borderRightColor: 'gray',
+    borderLeftWidth: 1,
+    borderLeftColor: 'gray',
+    borderBottomWidth: 1,
+    borderBottomColor: 'gray',
+    borderBottomLeftRadius: 5,
+    borderBottomRightRadius: 5,
+    borderTopLeftRadius: 5,
+    borderTopRightRadius: 5,
+  },
 });

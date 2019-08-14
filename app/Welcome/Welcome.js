@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { Text,Platform,AsyncStorage } from 'react-native';
 
 import Swiper from '../components/Swiper/Swiper';
-import * as Icon from '@expo/vector-icons'
-import { LinearGradient } from 'expo-linear-gradient'
+import {Icon,LinearGradient} from 'expo'
 import Colors from '../constants/Colors';
 import styles from './styles'
 import { userChoice } from '../constants/util';
@@ -15,12 +14,8 @@ export default class Introduction extends Component {
     };
   }
 _handleUser=async()=>{
-await AsyncStorage.setItem(userChoice,'true').then(()=>{
     this.props.navigation.navigate('SignScreen')
-    
-}).catch(error=>{
-console.log(error.message)
-});
+
 }
   render() {
     return (

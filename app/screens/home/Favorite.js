@@ -9,10 +9,8 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { Icon } from 'expo';
 import styles from '../styles/style'
 import { data } from '../../data/joblist';
-import * as Animatable from 'react-native-animatable'
 import Colors from '../../constants/Colors';
 export default class FavoriteScreen extends React.Component {
   static navigationOptions = {

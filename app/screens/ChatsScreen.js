@@ -13,7 +13,7 @@ import {
 import _ from "lodash";
 import { ListItem, SearchBar } from "react-native-elements";
 import { List } from 'native-base';
-import * as Icon from '@expo/vector-icons'
+import { Icon } from 'expo';
 import Colors from '../constants/Colors';
 import styles from './styles/style'
 import { getUsers, contains } from '../data/index';
