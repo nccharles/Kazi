@@ -47,7 +47,7 @@ export default StyleSheet.create({
         color: Colors.primaryWhite,
         borderBottomWidth: 2,
         borderColor: Colors.primaryWhite,
-        fontFamily: 'space-mono-Bold',
+        fontFamily: 'font-bold',
     },
     Buttons: {
         backgroundColor: "transparent",
@@ -77,7 +77,7 @@ export default StyleSheet.create({
     },
 
     buttonText: {
-        fontFamily: 'space-mono-Bold',
+        fontFamily: 'font-bold',
         fontSize: screenwidth / 25,
         paddingHorizontal: 5,
         color: Colors.primaryWhite
@@ -95,7 +95,7 @@ export default StyleSheet.create({
         fontSize: screenwidth / 25,
         paddingHorizontal: 16,
         color: Colors.primary,
-        fontFamily: 'space-mono-Bold',
+        fontFamily: 'font-bold',
     },
 
     inputInter: {
@@ -109,7 +109,7 @@ export default StyleSheet.create({
         borderBottomWidth: 2,
         borderBottomRightRadius: screenheight / 16,
         borderColor: Colors.primaryDark,
-        fontFamily: 'space-mono-Bold',
+        fontFamily: 'font-bold',
     },
     border: {
         height: INPUT_HEIGHT,

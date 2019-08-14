@@ -36,7 +36,7 @@ export default StyleSheet.create({
     left: 15,
     top: 8,
     fontSize: screenwidth / 25,
-    fontFamily: 'space-mono-Bold',
+    fontFamily: 'font-bold',
     color: Colors.primaryBlack,
 
   },
@@ -46,7 +46,7 @@ export default StyleSheet.create({
     position: 'absolute',
     left: 15,
     bottom: 15,
-    fontFamily: 'space-mono-Bold',
+    fontFamily: 'font-bold',
   },
   label2: {
     color: Colors.primaryGray,
@@ -54,7 +54,7 @@ export default StyleSheet.create({
     position: 'absolute',
     left: 15,
     bottom: 0,
-    fontFamily: 'space-mono-Bold',
+    fontFamily: 'font-bold',
   },
   icon_btn: {
     position: "absolute",
@@ -64,18 +64,18 @@ export default StyleSheet.create({
   amount: {
     fontSize: screenwidth / 30,
     color: Colors.darkGray,
-    fontFamily: 'space-mono-Bold',
+    fontFamily: 'font-bold',
   },
   time: {
     fontSize: screenwidth / 30,
     color: Colors.secondary,
     top: 2,
-    fontFamily: 'space-mono',
+    fontFamily: 'font-regulary',
   },
   currencyName: {
     fontSize: screenwidth / 30,
     color: Colors.darkGray,
-    fontFamily: 'space-mono-Bold',
+    fontFamily: 'font-bold',
     marginLeft: 5
   },
   rightContainer: {
@@ -86,7 +86,7 @@ export default StyleSheet.create({
   rightCategory: {
     fontSize: screenwidth / 30,
     color: Colors.primaryBlack,
-    fontFamily: 'space-mono-Bold',
+    fontFamily: 'font-bold',
     position: 'absolute',
     right: 15,
     top: 10
@@ -110,7 +110,7 @@ export default StyleSheet.create({
     bottom: 0,
     color: Colors.secondary,
     fontSize: screenwidth / 35,
-    fontFamily: 'space-mono-Bold',
+    fontFamily: 'font-bold',
   },
   parent: {
     flex: 1,
@@ -161,7 +161,7 @@ export default StyleSheet.create({
     fontSize: screenwidth / 20,
     color: Colors.primaryWhite,
     textAlign: 'center',
-    fontFamily: 'space-mono-Bold',
+    fontFamily: 'font-bold',
   },
   center: {
     height: '100%',
@@ -181,12 +181,12 @@ export default StyleSheet.create({
   title: {
     color: Colors.primaryBlack,
     fontSize: screenwidth / 25,
-    fontFamily: 'space-mono',
+    fontFamily: 'font-regulary',
   },
   subTitle: {
     color: Colors.primaryGray,
     fontSize: screenwidth / 35,
-    fontFamily: 'space-mono',
+    fontFamily: 'font-regulary',
   },
   right: {
     height: '100%',

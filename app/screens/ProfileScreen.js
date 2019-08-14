@@ -86,18 +86,18 @@ const styles = StyleSheet.create({
     fontSize: 28,
     color: "#696969",
     fontWeight: "600",
-    fontFamily: 'space-mono-bold',
+    fontFamily: 'font-bold',
   },
   info: {
     fontSize: 14,
     color: Colors.primary,
     marginTop: 10,
-    fontFamily: 'space-mono',
+    fontFamily: 'font-regulary',
   },
   description: {
     fontSize: 14,
     color: "#696969",
-    fontFamily: 'space-mono',
+    fontFamily: 'font-regulary',
     marginTop: 10,
     textAlign: 'center'
   },
@@ -114,6 +114,6 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: Colors.primary_white,
-    fontFamily: 'space-mono-bold',
+    fontFamily: 'font-bold',
   }
 });

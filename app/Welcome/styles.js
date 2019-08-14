@@ -12,13 +12,13 @@ const styles = StyleSheet.create({
         color: Colors.primary_white,
         fontSize: 30,
         fontWeight: 'bold',
-        fontFamily: 'space-mono',
+        fontFamily: 'font-regulary',
         marginVertical: 15,
     },
     // Text below header
     text: {
         color: Colors.primary_white,
-        fontFamily: 'space-mono',
+        fontFamily: 'font-regulary',
         fontSize: 18,
         marginHorizontal: 40,
         textAlign: 'center',

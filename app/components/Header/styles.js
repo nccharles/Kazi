@@ -40,7 +40,7 @@ export default StyleSheet.create({
         color: Colors.primary,
         marginLeft: 15,
         top: -2,
-        fontFamily: 'space-mono-bold',
+        fontFamily: 'font-bold',
         marginBottom: 6,
     },
     forexInfo: {
@@ -53,13 +53,13 @@ export default StyleSheet.create({
     },
     chattitle: {
         color: Colors.primary,
-        fontFamily: 'space-mono-bold',
+        fontFamily: 'font-bold',
     },
     forexTitle: {
         color: Colors.primary,
         fontSize: screenWidth / 20,
         marginRight: 20,
-        fontFamily: 'space-mono-bold',
+        fontFamily: 'font-bold',
     },
     forexOptions: {
         fontSize: 12,

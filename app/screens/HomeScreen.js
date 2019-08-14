@@ -64,7 +64,7 @@ export default class HomeScreen extends React.Component {
           style={styles.tab}
           tabBarBackgroundColor={Colors.primary_white}
           tabBarActiveTextColor={Colors.primary}
-          tabBarTextStyle={{ fontFamily: 'space-mono-bold', fontSize: 15 }}
+          tabBarTextStyle={{ fontFamily: 'font-bold', fontSize: 15 }}
           tabBarUnderlineStyle={{ backgroundColor: Colors.primary}}
           tabBarInactiveTextColor={Colors.primary_gray}
         >

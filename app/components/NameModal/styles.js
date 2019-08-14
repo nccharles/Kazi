@@ -12,18 +12,18 @@ export default StyleSheet.create({
         width: screenwidth - 70,
         paddingHorizontal: 10,
         fontSize: screenwidth / 25,
-        fontFamily: 'space-mono',
+        fontFamily: 'font-regulary',
     },
     button: {
-        fontFamily: 'space-mono',
+        fontFamily: 'font-regulary',
         color: Colors.primary
     },
     title: {
-        fontFamily: 'space-mono-Bold',
+        fontFamily: 'font-bold',
         color: Colors.primary
     },
     details: {
-        fontFamily: 'space-mono',
+        fontFamily: 'font-regulary',
         color: Colors.darkGray
     }
 })
