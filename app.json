@@ -16,7 +16,7 @@
     "splash": {
       "image": "./app/assets/images/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#227093"
+      "backgroundColor": "#FFFFFF"
     },
     "scheme": "limitlessafricanapps",
     "updates": {

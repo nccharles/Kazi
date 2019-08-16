@@ -113,7 +113,7 @@ export default StyleSheet.create({
     fontFamily: 'font-regulary',
   },
   inputStyle: {
-    color: '#333',
+    color: Colors.primary_white,
     textDecorationLine: 'none',
     fontFamily: 'font-regulary',
   },
