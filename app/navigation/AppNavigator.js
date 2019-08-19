@@ -6,6 +6,8 @@ import Introduction from '../Welcome/Welcome';
 import SignupScreen from '../screens/signup/signupScreen';
 import NotificationScreen from '../screens/Notifications';
 import LoginScreen from '../screens/signup/LoginScreen';
+import careerScreen from '../screens/signup/careerScreen';
+import JobScreen from '../screens/joblistScreen';
 const StackNavigator = createStackNavigator(
   {
     HomeScreen: {
@@ -22,12 +24,15 @@ const StackNavigator = createStackNavigator(
   });
 const SignStackNavigator = createStackNavigator(
   {
-    Login: {
-      screen: LoginScreen
-    },
     Signup: {
       screen: SignupScreen,
     },
+    Career: {
+      screen: careerScreen,
+    },
+    Job: {
+      screen: JobScreen
+    }
   }, {
     headerMode: 'none',
     navigationOptions: {
@@ -39,7 +44,9 @@ const SwithNavigator = createSwitchNavigator(
     IntroScreen: {
       screen: Introduction,
     },
-
+    Login: {
+      screen: LoginScreen
+    },
     SignScreen: {
       screen: SignStackNavigator,
     },

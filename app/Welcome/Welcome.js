@@ -14,7 +14,7 @@ export default class Introduction extends Component {
     };
   }
 _handleUser=async()=>{
-    this.props.navigation.navigate('SignScreen')
+    this.props.navigation.navigate('Login')
 
 }
   render() {

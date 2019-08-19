@@ -3,7 +3,7 @@ import {
   StyleSheet,
   Text,
   View,
-  Image, AsyncStorage,
+  Image, AsyncStorage,ScrollView,
   TouchableOpacity
 } from 'react-native';
 import Colors from '../constants/Colors';
@@ -35,9 +35,9 @@ export default class Profile extends Component {
   render() {
     const {fname,lname,job}=this.state
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <View style={styles.header}></View>
-        <Image style={styles.avatar} source={require('../assets/images/user-add.png')} />
+        <Image style={styles.avatar} source={require('../Assets/images/user-add.png')} />
         <View style={styles.body}>
           <View style={styles.bodyContent}>
             <Text style={styles.name}>{fname}, {lname}</Text>
@@ -52,7 +52,7 @@ export default class Profile extends Component {
             </TouchableOpacity>
           </View>
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }
@@ -86,18 +86,18 @@ const styles = StyleSheet.create({
     fontSize: 28,
     color: "#696969",
     fontWeight: "600",
-    fontFamily: 'space-mono-bold',
+    fontFamily: 'font-bold',
   },
   info: {
     fontSize: 14,
     color: Colors.primary,
     marginTop: 10,
-    fontFamily: 'space-mono',
+    fontFamily: 'font-regulary',
   },
   description: {
     fontSize: 14,
     color: "#696969",
-    fontFamily: 'space-mono',
+    fontFamily: 'font-regulary',
     marginTop: 10,
     textAlign: 'center'
   },
@@ -114,6 +114,6 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: Colors.primary_white,
-    fontFamily: 'space-mono-bold',
+    fontFamily: 'font-bold',
   }
 });

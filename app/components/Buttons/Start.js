@@ -36,6 +36,6 @@ const styles = StyleSheet.create({
   text: {
     color: '#FFFFFF',
     textAlign: 'center',
-    fontFamily: 'space-mono',
+    fontFamily: 'font-regulary',
   },
 });

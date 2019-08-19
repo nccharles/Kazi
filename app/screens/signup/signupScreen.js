@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   View, TextInput,
-  Picker, Animated, Dimensions,AsyncStorage, Platform, KeyboardAvoidingView, Text
+  Picker, Animated, Dimensions, AsyncStorage, Platform, KeyboardAvoidingView, Text
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient'
 import { Input } from "react-native-elements";
@@ -60,17 +60,15 @@ export default class SignupScreen extends React.Component {
     }));
   };
   _handleSignup = async () => {
-    const {fname,lname,email,jobtitle}= this.state.info
+    const { fname, lname, email, jobtitle } = this.state.info
 
-    if(!fname || !lname || !email ) return alert('Please all field!')
+    if (!fname || !lname || !email) return alert('Please all fields!')
 
     await AsyncStorage.setItem(userName, fname)
     await AsyncStorage.setItem(fName, fname)
     await AsyncStorage.setItem(lName, lname)
-    await AsyncStorage.setItem(userEmail, email)
-    await AsyncStorage.setItem(userJob, jobtitle)
-    await AsyncStorage.setItem(userChoice, 'true').then(() => {
-      this.props.navigation.navigate('TabScreen')
+    await AsyncStorage.setItem(userEmail, email).then(() => {
+      this.props.navigation.navigate('Career')
 
     }).catch(error => {
       console.log(error.message)
@@ -105,8 +103,8 @@ export default class SignupScreen extends React.Component {
     const jobposition = data.map((job, i) => {
       return (
         <Picker.Item
-          label={job}
-          value={job}
+          label={job.label}
+          value={job.label}
         />
       )
     })
@@ -156,7 +154,7 @@ export default class SignupScreen extends React.Component {
       >
 
         <View style={{ width: '100%', paddingHorizontal: 25 }}>
-          <Picker
+          {/* <Picker
             mode="dropdown"
             selectedValue={jobtitle}
             style={styles.picker}
@@ -164,8 +162,12 @@ export default class SignupScreen extends React.Component {
               this._handleInput("jobtitle", itemValue)
             }
           >
+            <Picker.Item
+              label="Select career"
+              value=""
+            />
             {jobposition}
-          </Picker>
+          </Picker> */}
           {animatedInputs}
 
           <Button text="Next" onPress={() => this._handleSignup()} />

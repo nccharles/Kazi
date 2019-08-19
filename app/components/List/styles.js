@@ -65,25 +65,25 @@ const styles = StyleSheet.create({
   },
   titleContainer: {
     justifyContent: 'center',
-    fontFamily: 'space-mono-Bold',
+    fontFamily: 'font-bold',
   },
   subTitleContainer: {
     justifyContent: 'center',
-    fontFamily: 'space-mono',
+    fontFamily: 'font-regulary',
   },
   title: {
-    fontFamily: 'space-mono-Bold',
+    fontFamily: 'font-bold',
     color: Colors.primaryDark,
     fontSize: screenwidth / 30
   },
   subTitle: {
-    fontFamily: 'space-mono-Bold',
+    fontFamily: 'font-bold',
     color: Colors.primaryGray,
     fontSize: screenwidth / 35
   },
   amount: {
     fontSize: screenwidth / 25,
-    fontFamily: 'space-mono-Bold',
+    fontFamily: 'font-bold',
     color: Colors.secondary
   },
   imageContainer: {

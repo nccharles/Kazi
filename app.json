@@ -9,14 +9,14 @@
       "ios",
       "android"
     ],
-    "version": "1.0.0",
+    "version": "1.1.0",
     "orientation": "portrait",
     "primaryColor": "#227093",
-    "icon": "./app/assets/images/icon.png",
+    "icon": "./app/Assets/images/icon.png",
     "splash": {
-      "image": "./app/assets/images/splash.png",
+      "image": "./app/Assets/images/icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#227093"
+      "backgroundColor": "#FFFFFF"
     },
     "scheme": "limitlessafricanapps",
     "updates": {
@@ -34,10 +34,14 @@
       }
     },
     "notification": {
-      "icon": "./app/assets/images/icon.png",
+      "icon": "./app/Assets/images/notify.png",
       "color": "#227093",
       "androidMode": "collapse",
       "androidCollapsedTitle": "#{unread_notifications} new messages"
+    },
+    "androidStatusBar": {
+      "barStyle": "dark-content",
+      "backgroundColor": "#227093"
     },
     "android": {
       "package": "com.limitlessafricanapps.iKazi",

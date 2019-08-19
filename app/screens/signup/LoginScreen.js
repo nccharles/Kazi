@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     header: {
         color: brandColor,
         opacity: 1,
-        fontFamily: 'space-mono-bold',
+        fontFamily: 'font-bold',
         fontSize: width / 25,
         marginTop: height * .1,
         marginLeft: width * .05,
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
         flex: 1,
         fontSize: width / 18,
         color: brandColor,
-        fontFamily: 'space-mono-bold',
+        fontFamily: 'font-bold',
     },
     button: {
         marginTop: 20,
@@ -76,20 +76,20 @@ const styles = StyleSheet.create({
     buttonText: {
         color: Colors.primary_white,
         fontSize: width / 25,
-        fontFamily: 'space-mono-bold',
+        fontFamily: 'font-bold',
     },
     wrongNumberText: {
         margin: 10,
         fontSize: width / 30,
         textAlign: 'center',
         color: Colors.primary_gray,
-        fontFamily: 'space-mono',
+        fontFamily: 'font-regulary',
     },
     disclaimerText: {
         marginTop: 30,
         fontSize: width / 35,
         color: Colors.primary_gray,
-        fontFamily: 'space-mono',
+        fontFamily: 'font-regulary',
     },
     callingCodeView: {
         alignItems: 'center',
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     callingCodeText: {
         fontSize: width / 18,
         color: brandColor,
-        fontFamily: 'space-mono-bold',
+        fontFamily: 'font-bold',
         paddingRight: 10
     }
 });
@@ -132,7 +132,7 @@ export default class LoginScreen extends Component {
 
             headerTintColor: Colors.primary_white,
             headerTitleStyle: {
-                fontFamily: 'space-mono-bold',
+                fontFamily: 'font-bold',
             },
         }
     };

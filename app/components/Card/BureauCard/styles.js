@@ -38,7 +38,7 @@ export default StyleSheet.create({
   category: {
     alignSelf: 'center',
     textAlign: 'center',
-    fontFamily: 'space-mono-Bold',
+    fontFamily: 'font-bold',
     color: Colors.primaryGray,
     fontSize: screenwidth / 15,
     marginLeft: 20
@@ -48,13 +48,13 @@ export default StyleSheet.create({
     // top: screenheight/250,
     left: 15,
     // top: 3,
-    fontFamily: 'space-mono-Bold',
+    fontFamily: 'font-bold',
     fontSize: screenwidth / 20,
     color: Colors.primary,
   },
   label: {
     color: Colors.primaryGray,
-    fontFamily: 'space-mono',
+    fontFamily: 'font-regulary',
     fontSize: screenwidth / 25,
   },
   iconBtn: {
@@ -67,7 +67,7 @@ export default StyleSheet.create({
     right: 15,
     bottom: 5,
     color: Colors.secondary,
-    fontFamily: 'space-mono-Bold',
+    fontFamily: 'font-bold',
     fontSize: screenwidth / 30
   }
 })

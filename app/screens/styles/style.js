@@ -65,22 +65,22 @@ export default StyleSheet.create({
     marginTop: 5,
   },
   logo: {
-    color: Colors.primary_black,
+    color: Colors.primary,
     fontSize: 20,
     margin: 10,
     marginLeft: 20,
-    fontFamily: 'space-mono-bold',
+    fontFamily: 'font-bold',
   },
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
   tabBar: {
-    fontFamily: 'space-mono-bold',
+    fontFamily: 'font-bold',
     fontSize: 12
   },
   tab: {
-    elevation: 3
+    elevation: 3,
   },
   topBit: {
     flexDirection: 'row',
@@ -96,7 +96,7 @@ export default StyleSheet.create({
   empty: {
     textAlign: 'center',
     color: Colors.primary_gray,
-    fontFamily: 'space-mono-italic'
+    fontFamily: 'font-italic'
   },
   caption: {
     flex: 1,
@@ -110,19 +110,37 @@ export default StyleSheet.create({
     alignSelf: 'center',
     height: height / 16,
     width: width - 50,
-    fontFamily: 'space-mono',
+    fontFamily: 'font-regulary',
   },
+  infoWithIcon:{
+    flexDirection: 'row',
+  },
+  aboutText:{
+    color: Colors.primary_white,
+    fontFamily: 'font-bold',
+    fontSize: width/20
+  },
+  inputDescription: {
+    color: Colors.primary_white,
+    marginBottom: height * .12,
+    alignSelf: 'flex-start',
+    width: width - 50,
+    borderBottomWidth: .4,
+    borderBottomColor: Colors.primary_white,
+    fontFamily: 'font-regulary',
+  },
+
   inputStyle: {
-    color: '#333',
+    color: Colors.primary_white,
     textDecorationLine: 'none',
-    fontFamily: 'space-mono',
+    fontFamily: 'font-regulary',
   },
   picker: {
     borderRadius: 5,
     color: Colors.primary_white,
     width: width - 60,
     marginHorizontal: width / 12,
-    fontFamily: 'space-mono',
+    fontFamily: 'font-regulary',
     height: 40,
     borderTopWidth: 1,
     borderTopColor: 'gray',
