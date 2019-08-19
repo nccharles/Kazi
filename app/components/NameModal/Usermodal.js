@@ -22,7 +22,7 @@ class DialogNameComponent extends Component {
         return (
             <View>
                 <Dialog.Container visible={visible}>
-                    <Dialog.Title style={styles.title}>{title}   </Dialog.Title>
+                    <Dialog.Title style={styles.title}>{title}</Dialog.Title>
                     <Dialog.Description style={styles.details}>
                         {description}
                     </Dialog.Description>

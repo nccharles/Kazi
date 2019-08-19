@@ -17,7 +17,7 @@ import * as Animatable from 'react-native-animatable'
 import ScrollableTabView from 'react-native-scrollable-tab-view'
 import Colors from '../constants/Colors';
 import JobScreen from './home/allJobs';
-import FavoriteScreen from './home/Favorite';
+import PeopleScreen from './home/People';
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
@@ -49,7 +49,7 @@ export default class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.topBit}>
-          <Text style={styles.logo}>Jobs</Text>
+          <Text style={styles.logo}>Kazi</Text>
           <View style={styles.row}>
             <TouchableOpacity onPress={() => alert('done')} >
               <Icon.Ionicons name={Platform.OS==='ios'?'ios-search':'md-search'} color={Colors.primary} size={20} style={{ padding: 20 }} />
@@ -64,12 +64,12 @@ export default class HomeScreen extends React.Component {
           style={styles.tab}
           tabBarBackgroundColor={Colors.primary_white}
           tabBarActiveTextColor={Colors.primary}
-          tabBarTextStyle={{ fontFamily: 'font-bold', fontSize: 15 }}
+          tabBarTextStyle={{ fontWeight: 'bold', fontSize: 15 }}
           tabBarUnderlineStyle={{ backgroundColor: Colors.primary}}
           tabBarInactiveTextColor={Colors.primary_gray}
         >
-        <JobScreen tabLabel="All" {...this.props} />
-          <FavoriteScreen tabLabel="Favorites" {...this.props} />
+        <JobScreen tabLabel="Jobs   " {...this.props} />
+          <PeopleScreen tabLabel="People   " {...this.props} />
         </ScrollableTabView>
       </View>
     );

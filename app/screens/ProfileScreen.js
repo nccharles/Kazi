@@ -3,7 +3,7 @@ import {
   StyleSheet,
   Text,
   View,
-  Image, AsyncStorage,
+  Image, AsyncStorage,ScrollView,
   TouchableOpacity
 } from 'react-native';
 import Colors from '../constants/Colors';
@@ -35,9 +35,9 @@ export default class Profile extends Component {
   render() {
     const {fname,lname,job}=this.state
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <View style={styles.header}></View>
-        <Image style={styles.avatar} source={require('../assets/images/user-add.png')} />
+        <Image style={styles.avatar} source={require('../Assets/images/user-add.png')} />
         <View style={styles.body}>
           <View style={styles.bodyContent}>
             <Text style={styles.name}>{fname}, {lname}</Text>
@@ -52,7 +52,7 @@ export default class Profile extends Component {
             </TouchableOpacity>
           </View>
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }

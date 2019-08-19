@@ -65,7 +65,7 @@ export default StyleSheet.create({
     marginTop: 5,
   },
   logo: {
-    color: Colors.primary_black,
+    color: Colors.primary,
     fontSize: 20,
     margin: 10,
     marginLeft: 20,
@@ -80,7 +80,7 @@ export default StyleSheet.create({
     fontSize: 12
   },
   tab: {
-    elevation: 3
+    elevation: 3,
   },
   topBit: {
     flexDirection: 'row',
@@ -112,6 +112,24 @@ export default StyleSheet.create({
     width: width - 50,
     fontFamily: 'font-regulary',
   },
+  infoWithIcon:{
+    flexDirection: 'row',
+  },
+  aboutText:{
+    color: Colors.primary_white,
+    fontFamily: 'font-bold',
+    fontSize: width/20
+  },
+  inputDescription: {
+    color: Colors.primary_white,
+    marginBottom: height * .12,
+    alignSelf: 'flex-start',
+    width: width - 50,
+    borderBottomWidth: .4,
+    borderBottomColor: Colors.primary_white,
+    fontFamily: 'font-regulary',
+  },
+
   inputStyle: {
     color: Colors.primary_white,
     textDecorationLine: 'none',

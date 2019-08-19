@@ -62,15 +62,13 @@ export default class SignupScreen extends React.Component {
   _handleSignup = async () => {
     const { fname, lname, email, jobtitle } = this.state.info
 
-    if (!fname || !lname || !email || !jobtitle) return alert('Please all fields!')
+    if (!fname || !lname || !email) return alert('Please all fields!')
 
     await AsyncStorage.setItem(userName, fname)
     await AsyncStorage.setItem(fName, fname)
     await AsyncStorage.setItem(lName, lname)
-    await AsyncStorage.setItem(userEmail, email)
-    await AsyncStorage.setItem(userJob, jobtitle)
-    await AsyncStorage.setItem(userChoice, 'true').then(() => {
-      this.props.navigation.navigate('TabScreen')
+    await AsyncStorage.setItem(userEmail, email).then(() => {
+      this.props.navigation.navigate('Career')
 
     }).catch(error => {
       console.log(error.message)
@@ -156,7 +154,7 @@ export default class SignupScreen extends React.Component {
       >
 
         <View style={{ width: '100%', paddingHorizontal: 25 }}>
-          <Picker
+          {/* <Picker
             mode="dropdown"
             selectedValue={jobtitle}
             style={styles.picker}
@@ -169,7 +167,7 @@ export default class SignupScreen extends React.Component {
               value=""
             />
             {jobposition}
-          </Picker>
+          </Picker> */}
           {animatedInputs}
 
           <Button text="Next" onPress={() => this._handleSignup()} />
