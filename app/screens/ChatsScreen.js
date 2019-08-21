@@ -1,19 +1,14 @@
 import React from 'react';
 import {
-  ScrollView,
   Text,
   TouchableOpacity,
   View,
-  FlatList,
   ActivityIndicator,
   Platform,
   Alert,
-  SafeAreaView
 } from "react-native";
 import _ from "lodash";
-import { ListItem, SearchBar } from "react-native-elements";
-import { List } from 'native-base';
-import { Icon } from 'expo';
+import * as Icon from '@expo/vector-icons'
 import Colors from '../constants/Colors';
 import styles from './styles/style'
 import { getUsers, contains } from '../data/index';

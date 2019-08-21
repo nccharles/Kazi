@@ -1,12 +1,7 @@
 import React from 'react';
 import {
-  ScrollView,
   Text,
-  StyleSheet,
-  TextInput,
-  FlatList,
   Keyboard,
-  TouchableOpacity,
   View,
 } from 'react-native';
 import styles from '../styles/style'

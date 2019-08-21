@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { TouchableOpacity } from 'react-native'
-import { LinearGradient, Icon } from "expo";
+import * as Icon from '@expo/vector-icons'
+import { LinearGradient } from 'expo-linear-gradient'
 import styles from './styles'
 import { Colors } from '../../Assets/Themes';
 

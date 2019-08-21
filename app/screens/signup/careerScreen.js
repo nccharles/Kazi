@@ -87,6 +87,7 @@ export default class careerScreen extends React.Component {
       {
         placeholder: `eg:[ I am very passionate about Business, strive to better myself in my career, and development of my country. ]`,
         name: 'description',
+        type: 'default',
         value: description
       }
     ];

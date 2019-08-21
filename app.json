@@ -14,8 +14,8 @@
     "primaryColor": "#227093",
     "icon": "./app/Assets/images/icon.png",
     "splash": {
-      "image": "./app/Assets/images/icon.png",
-      "resizeMode": "contain",
+      "image": "./app/Assets/images/splash.png",
+      "resizeMode": "cover",
       "backgroundColor": "#FFFFFF"
     },
     "scheme": "limitlessafricanapps",
@@ -28,7 +28,7 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.limitlessafricanapps.iKazi",
+      "bundleIdentifier": "com.limitlessafricanapps.Kazi",
       "config": {
         "googleMapsApiKey": "AIzaSyCy6H2ah8PtVYEl6gsbYNGaTCTiZsgPttw"
       }
@@ -44,7 +44,7 @@
       "backgroundColor": "#227093"
     },
     "android": {
-      "package": "com.limitlessafricanapps.iKazi",
+      "package": "com.limitlessafricanapps.Kazi",
       "versionCode": 3,
       "permissions": [
         "ACCESS_COARSE_LOCATION",
