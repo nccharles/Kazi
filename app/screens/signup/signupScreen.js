@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  View, TextInput,
+  View,
   Picker, Animated, Dimensions, AsyncStorage, Platform, KeyboardAvoidingView, Text
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient'
@@ -9,7 +9,7 @@ import Colors from '../../constants/Colors';
 import Button from '../../components/Buttons/Start';
 import styles from "../styles/style"
 import { data } from '../../data/joblist';
-import { userChoice, userName, fName, lName, userEmail, userJob } from '../../constants/util';
+import { userName, fName, lName, userEmail } from '../../constants/util';
 const arr = [];
 for (var i = 0; i < 3; i++) {
   arr.push(i)
@@ -81,14 +81,14 @@ export default class SignupScreen extends React.Component {
       {
         placeholder: 'First Name',
         name: 'fname',
-        type: '',
+        type: 'default',
         icon: 'user',
         value: this.state.info.fname
       },
       {
         placeholder: 'Last Name',
         name: 'lname',
-        type: '',
+        type: 'default',
         icon: 'user',
         value: this.state.info.lname
       },
@@ -117,7 +117,6 @@ export default class SignupScreen extends React.Component {
           }}
         >
           <Input
-            // inputStyle={[{ borderColor: '#fff', borderBottomWidth: 1, padding: 5, marginBottom: 30 }]}
             selectionColor="#fff"
             placeholder={a.placeholder}
             placeholderTextColor="#fff"

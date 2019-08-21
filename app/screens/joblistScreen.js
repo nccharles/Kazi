@@ -1,6 +1,6 @@
 import React from "react";
 import { FlatList,TouchableOpacity } from "react-native";
-import { Text, ListItem, Left, Body, Icon, Right, Title } from "native-base";
+import { Text, ListItem, Left, Body,Right } from "native-base";
 export default class JobScreen extends React.Component {
   constructor() {
     super();

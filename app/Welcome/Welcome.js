@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Text,Platform,AsyncStorage } from 'react-native';
+import { Text,Platform } from 'react-native';
 
 import Swiper from '../components/Swiper/Swiper';
-import {Icon,LinearGradient} from 'expo'
+import * as Icon from '@expo/vector-icons'
+import { LinearGradient } from 'expo-linear-gradient'
 import Colors from '../constants/Colors';
 import styles from './styles'
-import { userChoice } from '../constants/util';
 export default class Introduction extends Component {
   constructor(props) {
     super(props);

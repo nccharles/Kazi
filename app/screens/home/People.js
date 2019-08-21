@@ -1,16 +1,11 @@
 import React from 'react';
 import {
-  ScrollView,
   Text,
-  StyleSheet,
-  TextInput,
-  FlatList,
   Keyboard,
-  TouchableOpacity,
   View,
 } from 'react-native';
 import styles from '../styles/style'
-export default class FavoriteScreen extends React.Component {
+export default class PeopleScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };

@@ -104,13 +104,11 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   input: {
-    color: Colors.primary_white,
     borderRadius: 5,
     marginBottom: height * .05,
     alignSelf: 'center',
     height: height / 16,
     width: width - 50,
-    fontFamily: 'font-regulary',
   },
   infoWithIcon:{
     flexDirection: 'row',

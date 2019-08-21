@@ -1,19 +1,13 @@
 import React from 'react';
 import {
-  ScrollView,
   Platform,
   Text,
-  StyleSheet,
-  TextInput,
-  FlatList,
   Keyboard,
   TouchableOpacity,
   View,
 } from 'react-native';
 import * as Icon from '@expo/vector-icons'
 import styles from './styles/style'
-import { data } from '../data/joblist';
-import * as Animatable from 'react-native-animatable'
 import ScrollableTabView from 'react-native-scrollable-tab-view'
 import Colors from '../constants/Colors';
 import JobScreen from './home/allJobs';

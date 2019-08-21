@@ -17,9 +17,8 @@ import Spinner from 'react-native-loading-spinner-overlay';
 import Form from 'react-native-form';
 import CountryPicker from 'react-native-country-picker-modal';
 import { LinearGradient } from "expo-linear-gradient";
-import { userPhone, userName, userCountry } from '../../constants/util'
+import { userPhone, userCountry } from '../../constants/util'
 //backend imports 
-import * as firebase from 'firebase'
 import _ from 'lodash'
 import Colors from '../../constants/Colors';
 //back end done
@@ -145,10 +144,10 @@ export default class LoginScreen extends Component {
         this.setState({ spinner: true });
         if (__DEV__) {
             this.setState({
-                spinner: false,
                 enterCode: true,
+                spinner: false,
                 confirm: this.state.Code,
-                checked: this.state.Code
+                checked: this.state.Code,
             });
             setTimeout(() => {
                 this.refs.toast.show("Sent!: We've sent you a verification code");
@@ -168,8 +167,8 @@ export default class LoginScreen extends Component {
             })
         }).then((response) => response.json()).then(async () => {
             this.setState({
-                spinner: false,
                 enterCode: true,
+                spinner: false,
                 confirm: this.state.Code
             });
             setTimeout(() => {
@@ -201,21 +200,6 @@ export default class LoginScreen extends Component {
                         Alert.alert('Warning!', 'You have entered invalid Code');
                     }, 100);
                 } else {
-                    // await firebase
-                    //     .database()
-                    //     .ref(`/infos/${this.state.country.callingCode + this.state.Phone}/userInfo`)
-                    //     .once("value")
-                    //     .then(snapshot => {
-                    //         this.setState({
-                    //             credentails: {
-                    //                 ...this.state.credentails,
-                    //                 ...snapshot.val()
-                    //             }
-                    //         });
-                    //     })
-                    //     .catch(error => {
-                    //         console.log(error.message);
-                    //     });
                     this.refs.form.refs.textInput.blur();
                     this.setState({ spinner: false });
                     if (checked) {

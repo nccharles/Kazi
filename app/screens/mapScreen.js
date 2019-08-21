@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import {
-  Image, AsyncStorage,
-  Platform, Text, View, ActivityIndicator, Dimensions
+import {View, ActivityIndicator, Dimensions
 } from 'react-native'
 import Toast from 'react-native-easy-toast'
-import { Location, Permissions, MapView } from 'expo';
+import * as Permissions from 'expo-permissions'
+import * as Location from 'expo-location'
+import MapView from 'react-native-maps'
 import Colors from '../constants/Colors'
 import styles from './styles/style'
 import _ from 'lodash'

@@ -1,6 +1,4 @@
-import React from 'react';
 import { createAppContainer, createSwitchNavigator, createStackNavigator } from 'react-navigation';
-
 import MainTabNavigator from './MainTabNavigator';
 import Introduction from '../Welcome/Welcome';
 import SignupScreen from '../screens/signup/signupScreen';
@@ -39,7 +37,7 @@ const SignStackNavigator = createStackNavigator(
       headerVisible: false,
     }
   })
-const SwithNavigator = createSwitchNavigator(
+const SwitchNavigator = createSwitchNavigator(
   {
     IntroScreen: {
       screen: Introduction,
@@ -55,5 +53,5 @@ const SwithNavigator = createSwitchNavigator(
     },
   }
 );
-const AppContainer = createAppContainer(SwithNavigator);
+const AppContainer = createAppContainer(SwitchNavigator);
 export default AppContainer;
