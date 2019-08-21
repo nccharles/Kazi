@@ -1,20 +1,22 @@
 import React from 'react';
 import {
-  View,Animated, Dimensions, AsyncStorage, Platform, KeyboardAvoidingView
+  View,
+  Picker, Animated, Dimensions, AsyncStorage, Platform, KeyboardAvoidingView
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient'
 import { Input } from "react-native-elements";
-import Colors from '../../constants/Colors';
-import Button from '../../components/Buttons/Start';
-import styles from "../styles/style"
-import { userName, fName, lName, userEmail } from '../../constants/util';
+import Colors from '../constants/Colors';
+import Button from '../components/Buttons/Start';
+import styles from "./styles/style"
+import { jName, jobdate, joblocation } from '../constants/util';
+import SelectCareer from '../components/Select/selectCareer';
 const arr = [];
 for (var i = 0; i < 3; i++) {
   arr.push(i)
 };
 
 const screenwidth = Dimensions.get('window').width
-export default class SignupScreen extends React.Component {
+export default class AddWorkScreen extends React.Component {
   static navigationOptions = {
     header: null
   };
@@ -22,10 +24,9 @@ export default class SignupScreen extends React.Component {
     super(props);
     this.state = {
       info: {
-        fname: "",
-        lname: "",
-        email: "",
-        jobtitle: ""
+        location: "",
+        datetime: "",
+        baseJob: "Job type"
       }
     }
     this.animatedInputValue = [];
@@ -57,47 +58,49 @@ export default class SignupScreen extends React.Component {
       }
     }));
   };
-  _handleSignup = async () => {
-    const { fname, lname, email } = this.state.info
+  _handleAddJob = async () => {
+    const { baseJob, location, datetime } = this.state.info
 
-    if (!fname || !lname || !email) return alert('Please all fields!')
+    if (baseJob==="Job type" || !location || !datetime) return alert('Please all fields!')
 
-    await AsyncStorage.setItem(userName, fname)
-    await AsyncStorage.setItem(fName, fname)
-    await AsyncStorage.setItem(lName, lname)
-    await AsyncStorage.setItem(userEmail, email).then(() => {
-      this.props.navigation.navigate('Career')
+    await AsyncStorage.setItem(jName, baseJob)
+    await AsyncStorage.setItem(joblocation, location)
+    await AsyncStorage.setItem(jobdate, datetime).then(() => {
+      this.props.navigation.navigate('JobInfo')
 
     }).catch(error => {
       console.log(error.message)
     });
   }
+  setBaseJob = async (Job) => {
+
+    const { baseJob } = Job
+    this.setState(state => ({
+      info: {
+        ...state.info,
+        baseJob: baseJob
+      }
+    }))
+  }
   render() {
+    const { baseJob,location,datetime } = this.state.info
     // Inputs configs
     const inputs = [
       {
-        placeholder: 'First Name',
-        name: 'fname',
+        placeholder: 'Location',
+        name: 'location',
         type: 'default',
-        icon: 'user',
-        value: this.state.info.fname
+        icon: 'map',
+        value: location
       },
       {
-        placeholder: 'Last Name',
-        name: 'lname',
+        placeholder: 'Date',
+        name: 'datetime',
         type: 'default',
-        icon: 'user',
-        value: this.state.info.lname
-      },
-      {
-        placeholder: 'Email address',
-        name: 'email',
-        type: 'email-address',
-        icon: 'mail',
-        value: this.state.info.email
+        icon: 'calendar',
+        value: datetime
       }
     ];
-    
     const animatedInputs = inputs.map((a, i) => {
       return (
         <Animated.View
@@ -144,9 +147,12 @@ export default class SignupScreen extends React.Component {
       >
 
         <View style={{ width: '100%', paddingHorizontal: 25 }}>
+        <SelectCareer
+            onPress={() => this.props.navigation.navigate('Job', { setBaseJob: this.setBaseJob })}
+            careerText={baseJob} />
           {animatedInputs}
 
-          <Button text="Next" onPress={() => this._handleSignup()} />
+          <Button text="Next" onPress={() => this._handleAddJob()} />
         </View>
         {Platform.OS === 'android' &&
           <KeyboardAvoidingView behavior={'padding'} keyboardVerticalOffset={screenwidth / 24} />}

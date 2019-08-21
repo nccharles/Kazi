@@ -44,6 +44,7 @@ export default class App extends React.Component {
         // This is the font that we are using for our tab bar
         ...Icon.Ionicons.font,
         ...Icon.Entypo.font,
+        ...Icon.MaterialIcons.font,
         // We include SpaceMono because we use it in HomeScreen.js. Feel free
         // to remove this if you are not using it in your app
         'font-regulary': require('./app/Assets/fonts/SabonLTStd-Roman.otf'),
