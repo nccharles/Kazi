@@ -106,17 +106,21 @@ export default StyleSheet.create({
   input: {
     borderRadius: 5,
     marginBottom: height * .05,
-    alignSelf: 'center',
     height: height / 16,
-    width: width - 50,
+    borderBottomColor: Colors.primary_white,
+    borderBottomWidth: .4,
   },
-  infoWithIcon:{
-    flexDirection: 'row',
-  },
-  aboutText:{
+  inputStyle: {
     color: Colors.primary_white,
-    fontFamily: 'font-bold',
-    fontSize: width/20
+    textDecorationLine: 'none',
+    alignSelf: 'center',
+    alignItems: 'flex-start',
+    fontFamily: 'font-regulary',
+  },
+  containerStyle: {
+    width: width,
+    borderBottomWidth: 0,
+    padding: 0
   },
   inputDescription: {
     color: Colors.primary_white,
@@ -128,29 +132,12 @@ export default StyleSheet.create({
     fontFamily: 'font-regulary',
   },
 
-  inputStyle: {
-    color: Colors.primary_white,
-    textDecorationLine: 'none',
-    fontFamily: 'font-regulary',
+  infoWithIcon: {
+    flexDirection: 'row',
   },
-  picker: {
-    borderRadius: 5,
+  aboutText: {
     color: Colors.primary_white,
-    width: width - 60,
-    marginHorizontal: width / 12,
-    fontFamily: 'font-regulary',
-    height: 40,
-    borderTopWidth: 1,
-    borderTopColor: 'gray',
-    borderRightWidth: 1,
-    borderRightColor: 'gray',
-    borderLeftWidth: 1,
-    borderLeftColor: 'gray',
-    borderBottomWidth: 1,
-    borderBottomColor: 'gray',
-    borderBottomLeftRadius: 5,
-    borderBottomRightRadius: 5,
-    borderTopLeftRadius: 5,
-    borderTopRightRadius: 5,
+    fontFamily: 'font-bold',
+    fontSize: width / 20
   },
 });

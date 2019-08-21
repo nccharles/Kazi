@@ -44,11 +44,8 @@ export default class Profile extends Component {
             <Text style={styles.info}>{job}</Text>
             <Text style={styles.description}> I am very passionate about {job}, strive to better myself in my career, and the development of my country.</Text>
 
-            <TouchableOpacity style={styles.buttonContainer}>
+            <TouchableOpacity onPress={()=>this.props.navigation.navigate('AddWork')} style={styles.buttonContainer}>
               <Text style={styles.buttonText}>ADD WORK</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.buttonContainer}>
-              <Text style={styles.buttonText}>ADD RESUME</Text>
             </TouchableOpacity>
           </View>
         </View>

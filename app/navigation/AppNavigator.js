@@ -6,6 +6,8 @@ import NotificationScreen from '../screens/Notifications';
 import LoginScreen from '../screens/signup/LoginScreen';
 import careerScreen from '../screens/signup/careerScreen';
 import JobScreen from '../screens/joblistScreen';
+import addWorkScreen from '../screens/addWorkScreen';
+import jobInfoScreen from '../screens/jobInfoScreen';
 const StackNavigator = createStackNavigator(
   {
     HomeScreen: {
@@ -14,12 +16,22 @@ const StackNavigator = createStackNavigator(
     Notification: {
       screen: NotificationScreen,
     },
+    AddWork: {
+      screen: addWorkScreen
+    },
+    Job: {
+      screen: JobScreen
+    },
+    JobInfo: {
+      screen: jobInfoScreen
+    }
   }, {
     headerMode: 'none',
     navigationOptions: {
       headerVisible: false,
     }
   });
+
 const SignStackNavigator = createStackNavigator(
   {
     Signup: {
@@ -50,7 +62,7 @@ const SwitchNavigator = createSwitchNavigator(
     },
     TabScreen: {
       screen: StackNavigator,
-    },
+    }
   }
 );
 const AppContainer = createAppContainer(SwitchNavigator);

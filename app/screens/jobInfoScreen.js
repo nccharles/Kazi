@@ -1,20 +1,20 @@
 import React from 'react';
 import {
-  View,Animated, Dimensions, AsyncStorage, Platform, KeyboardAvoidingView
+  View, TextInput, Animated, Dimensions, Text, AsyncStorage, Platform, KeyboardAvoidingView
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient'
-import { Input } from "react-native-elements";
-import Colors from '../../constants/Colors';
-import Button from '../../components/Buttons/Start';
-import styles from "../styles/style"
-import { userName, fName, lName, userEmail } from '../../constants/util';
+import Colors from '../constants/Colors';
+import Button from '../components/Buttons/Start';
+import styles from "./styles/style"
+import { MaterialIcons } from '@expo/vector-icons'
+import { jDesc, jobweeks } from '../constants/util';
 const arr = [];
-for (var i = 0; i < 3; i++) {
+for (var i = 0; i < 2; i++) {
   arr.push(i)
 };
 
 const screenwidth = Dimensions.get('window').width
-export default class SignupScreen extends React.Component {
+export default class jobInfoScreen extends React.Component {
   static navigationOptions = {
     header: null
   };
@@ -22,10 +22,8 @@ export default class SignupScreen extends React.Component {
     super(props);
     this.state = {
       info: {
-        fname: "",
-        lname: "",
-        email: "",
-        jobtitle: ""
+        description: "",
+        weeks: ""
       }
     }
     this.animatedInputValue = [];
@@ -57,47 +55,44 @@ export default class SignupScreen extends React.Component {
       }
     }));
   };
-  _handleSignup = async () => {
-    const { fname, lname, email } = this.state.info
+  _handleAdd = async () => {
+    const { description, weeks } = this.state.info
 
-    if (!fname || !lname || !email) return alert('Please all fields!')
+    if (!description || !weeks) return alert('Please fill all fields!')
 
-    await AsyncStorage.setItem(userName, fname)
-    await AsyncStorage.setItem(fName, fname)
-    await AsyncStorage.setItem(lName, lname)
-    await AsyncStorage.setItem(userEmail, email).then(() => {
-      this.props.navigation.navigate('Career')
+    await AsyncStorage.setItem(jDesc, description)
+    await AsyncStorage.setItem(jobweeks, weeks).then(() => {
+      this.props.navigation.navigate('HomeScreen')
 
     }).catch(error => {
       console.log(error.message)
     });
   }
+ 
   render() {
+    const { description, weeks } = this.state.info
     // Inputs configs
     const inputs = [
+        {
+            placeholder: `eg: 3`,
+            line:1,
+            icon:"view-week",
+            title:"how many weeks",
+            name: 'weeks',
+            type: 'numeric',
+            value: weeks
+          },
       {
-        placeholder: 'First Name',
-        name: 'fname',
+        placeholder: `eg:[ This job is... ]`,
+        line:4,
+        icon:"info-outline",
+        title:"About this Job",
+        name: 'description',
         type: 'default',
-        icon: 'user',
-        value: this.state.info.fname
-      },
-      {
-        placeholder: 'Last Name',
-        name: 'lname',
-        type: 'default',
-        icon: 'user',
-        value: this.state.info.lname
-      },
-      {
-        placeholder: 'Email address',
-        name: 'email',
-        type: 'email-address',
-        icon: 'mail',
-        value: this.state.info.email
+        value: description
       }
     ];
-    
+
     const animatedInputs = inputs.map((a, i) => {
       return (
         <Animated.View
@@ -106,17 +101,21 @@ export default class SignupScreen extends React.Component {
             opacity: this.animatedInputValue[i], // attaching animations to the input opacity
           }}
         >
-          <Input
+        <View style={styles.infoWithIcon}>
+            <MaterialIcons
+              name={a.icon}
+              size={25}
+              color={Colors.primary_white} />
+            <Text style={styles.aboutText}>{a.title}</Text></View>
+          <TextInput
+            multiline={true}
+            numberOfLines={a.line}
             selectionColor="#fff"
             placeholder={a.placeholder}
             placeholderTextColor="#fff"
-            leftIcon={{ type: 'entypo', name: a.icon, color: Colors.primary_white }}
-            containerStyle={styles.input}
+            style={styles.inputDescription}
             underlineColorAndroid={'transparent'}
-            inputStyle={styles.inputStyle}
-            inputContainerStyle={styles.containerStyle}
             autoCapitalize='none'
-            keyboardType={a.type}
             autoCorrect={false}
             returnKeyType={"next"}
             onChangeText={(input) => this._handleInput(a.name, input)}
@@ -145,8 +144,7 @@ export default class SignupScreen extends React.Component {
 
         <View style={{ width: '100%', paddingHorizontal: 25 }}>
           {animatedInputs}
-
-          <Button text="Next" onPress={() => this._handleSignup()} />
+          <Button text="Done" onPress={() => this._handleAdd()} />
         </View>
         {Platform.OS === 'android' &&
           <KeyboardAvoidingView behavior={'padding'} keyboardVerticalOffset={screenwidth / 24} />}
