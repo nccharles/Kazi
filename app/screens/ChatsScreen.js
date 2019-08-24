@@ -98,26 +98,6 @@ export default class ChatsScreen extends React.Component {
             </TouchableOpacity>
           </View>
         </View>
-        {/* <SearchBar ref={search => this.search = search} value={search} onChangeText={this.handleSearch} placeholder="Search..." lightTheme />
-        <SafeAreaView>
-          <List>
-            <FlatList
-              data={this.state.data}
-              renderItem={({ item }) => (
-                <ListItem
-                  roundAvatar
-                  title={`${item.name.first} ${item.name.last}`}
-                  subtitle={item.email}
-                  avatar={{ uri: item.picture.thumbnail }}
-                  containerStyle={{ borderBottomWidth: 0 }}
-                />
-              )}
-              keyExtractor={item => item.email}
-              ItemSeparatorComponent={this.renderSeparator}
-              ListFooterComponent={this.renderFooter}
-            />
-          </List>
-        </SafeAreaView> */}
          <View style={styles.caption}>
         <Text style={styles.empty}>No Chats yet!</Text>
       </View>

@@ -10,6 +10,7 @@ import {
   TouchableOpacity, // Pressable container
   View              // Container component
 } from 'react-native';
+import Colors from '../../constants/Colors';
 
 export default class Button extends Component {
   render({ onPress } = this.props) {
@@ -28,13 +29,13 @@ const styles = StyleSheet.create({
   button: {
     borderRadius: 50,         // Rounded border
     borderWidth: 2,           // 2 point border widht
-    borderColor: '#FFFFFF',   // White colored border
+    borderColor: Colors.primary_white,   // White colored border
     paddingHorizontal: 50,    // Horizontal padding
     paddingVertical: 10,      // Vertical padding
   },
   // Button text
   text: {
-    color: '#FFFFFF',
+    color: Colors.primary_white,
     textAlign: 'center',
     fontFamily: 'font-regulary',
   },

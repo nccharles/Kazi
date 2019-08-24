@@ -4,7 +4,7 @@ import { Entypo } from '@expo/vector-icons'
 import PropTypes from 'prop-types'
 import styles from './styles'
 import Colors from '../../constants/Colors';
-const SelectCareer = (props) => {
+const DatePicker = (props) => {
     const { onPress, careerText,left } = props
 
     return (
@@ -14,7 +14,7 @@ const SelectCareer = (props) => {
                 style={[styles.Button,{paddingLeft: left}]}
                 onPress={onPress}>
                 <Entypo
-                    name='briefcase'
+                    name='calendar'
                     size={25}
                     color={Colors.primary} />
                 <Text
@@ -27,9 +27,9 @@ const SelectCareer = (props) => {
     )
 }
 
-SelectCareer.propTypes = {
+DatePicker.propTypes = {
     onPress: PropTypes.func,
     careerText: PropTypes.string,
     left: PropTypes.number,
 }
-export default SelectCareer
+export default DatePicker

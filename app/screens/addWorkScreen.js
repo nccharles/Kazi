@@ -1,20 +1,17 @@
 import React from 'react';
 import {
-  View,
-  Picker, Animated, Dimensions, AsyncStorage, Platform, KeyboardAvoidingView
+  View, Dimensions, AsyncStorage, Platform, KeyboardAvoidingView
 } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient'
 import { Input } from "react-native-elements";
 import Colors from '../constants/Colors';
-import Button from '../components/Buttons/Start';
 import styles from "./styles/style"
+import moment from "moment";
 import { jName, jobdate, joblocation } from '../constants/util';
 import SelectCareer from '../components/Select/selectCareer';
-const arr = [];
-for (var i = 0; i < 3; i++) {
-  arr.push(i)
-};
-
+import MainHeader from '../components/Header/mainHeader';
+import RoundButton from '../components/Buttons/RoundButton';
+import DateTimePicker from "react-native-modal-datetime-picker";
+import DatePicker from '../components/Select/datePicker';
 const screenwidth = Dimensions.get('window').width
 export default class AddWorkScreen extends React.Component {
   static navigationOptions = {
@@ -25,30 +22,33 @@ export default class AddWorkScreen extends React.Component {
     this.state = {
       info: {
         location: "",
-        datetime: "",
+        datetime: "Select Date",
         baseJob: "Job type"
-      }
+      },
+      isDateTimePickerVisible: false
     }
-    this.animatedInputValue = [];
-    arr.forEach((value) => {
-      this.animatedInputValue[value] = new Animated.Value(0)
-    });
   }
 
-  componentDidMount() {
-    // creating array animations 
-    const inputAnimations = arr.map((item) => {
-      return Animated.timing(
-        this.animatedInputValue[item],
-        {
-          toValue: 1,
-          duration: 1500,
-        }
-      );
-    });
-    // Animate each element after 1000 miliseconds
-    Animated.stagger(1000, inputAnimations).start();
-  }
+
+  showDateTimePicker = () => {
+    this.setState({ isDateTimePickerVisible: true });
+  };
+
+  hideDateTimePicker = () => {
+    this.setState({ isDateTimePickerVisible: false });
+  };
+
+  handleDatePicked = date => {
+    console.log("A date has been picked: ", date);
+    this.setState(state => ({
+      info: {
+        ...state.info,
+        datetime: moment(date).format("YYYY-MM-DD"),
+      }
+    }))
+    this.hideDateTimePicker();
+  };
+
   _handleInput = (key, value) => {
     console.log(key, value);
     this.setState(state => ({
@@ -61,7 +61,7 @@ export default class AddWorkScreen extends React.Component {
   _handleAddJob = async () => {
     const { baseJob, location, datetime } = this.state.info
 
-    if (baseJob==="Job type" || !location || !datetime) return alert('Please all fields!')
+    if (baseJob === "Job type" || !location || datetime === "Select Date") return alert('Please all fields!')
 
     await AsyncStorage.setItem(jName, baseJob)
     await AsyncStorage.setItem(joblocation, location)
@@ -83,80 +83,61 @@ export default class AddWorkScreen extends React.Component {
     }))
   }
   render() {
-    const { baseJob,location,datetime } = this.state.info
-    // Inputs configs
-    const inputs = [
-      {
-        placeholder: 'Location',
-        name: 'location',
-        type: 'default',
-        icon: 'map',
-        value: location
-      },
-      {
-        placeholder: 'Date',
-        name: 'datetime',
-        type: 'default',
-        icon: 'calendar',
-        value: datetime
-      }
-    ];
-    const animatedInputs = inputs.map((a, i) => {
-      return (
-        <Animated.View
-          key={i}
-          style={{
-            opacity: this.animatedInputValue[i], // attaching animations to the input opacity
-          }}
-        >
+    const { baseJob, location, datetime } = this.state.info
+    return (
+
+      <View
+        style={{
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+          justifyContent: 'space-between',
+          alignItems: 'center'
+        }}
+      >
+        <MainHeader
+          headerName="New job"
+          onPress={() => this.props.navigation.goBack()}
+        />
+        <View style={{ width: '100%', paddingHorizontal: 25 }}>
+          <SelectCareer
+            left={25}
+            onPress={() => this.props.navigation.navigate('Job', { setBaseJob: this.setBaseJob })}
+            careerText={baseJob} />
+          <DatePicker
+            left={25}
+            onPress={this.showDateTimePicker}
+            careerText={datetime} />
           <Input
-            selectionColor="#fff"
-            placeholder={a.placeholder}
-            placeholderTextColor="#fff"
-            leftIcon={{ type: 'entypo', name: a.icon, color: Colors.primary_white }}
+            selectionColor={Colors.primary}
+            placeholder="Location"
+            placeholderTextColor={Colors.primary}
+            leftIcon={{ type: 'entypo', name: "location-pin", color: Colors.primary }}
             containerStyle={styles.input}
             underlineColorAndroid={'transparent'}
             inputStyle={styles.inputStyle}
             inputContainerStyle={styles.containerStyle}
             autoCapitalize='none'
-            keyboardType={a.type}
+            keyboardType="default"
             autoCorrect={false}
             returnKeyType={"next"}
-            onChangeText={(input) => this._handleInput(a.name, input)}
-            value={a.value}
+            onChangeText={(input) => this._handleInput("location", input)}
+            value={location}
             editable={true}
           />
-
-        </Animated.View>
-
-      );
-    });
-
-    return (
-      <LinearGradient
-        colors={Colors.Swiper_gradient}
-        start={{ x: 0.5, y: 1.0 }}
-        end={{ x: 1.0, y: 0 }}
-        style={{
-          position: 'absolute',
-          width: '100%',
-          height: '100%',
-          justifyContent: 'center',
-          alignItems: 'center'
-        }}
-      >
-
-        <View style={{ width: '100%', paddingHorizontal: 25 }}>
-        <SelectCareer
-            onPress={() => this.props.navigation.navigate('Job', { setBaseJob: this.setBaseJob })}
-            careerText={baseJob} />
-          {animatedInputs}
-
-          <Button text="Next" onPress={() => this._handleAddJob()} />
+          <DateTimePicker
+            isVisible={this.state.isDateTimePickerVisible}
+            onConfirm={this.handleDatePicked}
+            onCancel={this.hideDateTimePicker}
+            minimumDate={new Date()}
+            mode="date"
+            datePickerModeAndroid="calendar"
+          />
+          <RoundButton text="Next" onPress={() => this._handleAddJob()} />
         </View>
         {Platform.OS === 'android' &&
           <KeyboardAvoidingView behavior={'padding'} keyboardVerticalOffset={screenwidth / 24} />}
-      </LinearGradient>
+      </View>
     );
   }
 }

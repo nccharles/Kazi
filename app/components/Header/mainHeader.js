@@ -8,14 +8,14 @@ import * as Icon from '@expo/vector-icons'
 import styles from './styles'
 import Colors from '../../constants/Colors';
 
-const DetailsHeader = (props) => {
-  const { onPress1, onPress2, source } = props
+const MainHeader = (props) => {
+  const { onPress,headerName } = props
 
   return (
     <View style={styles.container}>
       <View style={styles.wrapper}>
         <TouchableOpacity
-          onPress={onPress2}
+          onPress={onPress}
           style={{
             marginHorizontal: 10,
             marginTop: 2
@@ -25,25 +25,16 @@ const DetailsHeader = (props) => {
             size={25}
             color={Colors.primary_white} />
         </TouchableOpacity>
-        <Text style={styles.title}>Notifications   </Text>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            onPress={onPress1}>
-            <Icon.Ionicons
-            name={Platform.os==='ios'?'ios-settings':'md-settings'}
-            size={25}
-            color={Colors.primary_white} />
-          </TouchableOpacity>
-        </View>
+        <Text style={styles.title}>{headerName}  </Text>
       </View>
     </View>
   );
 }
 
-DetailsHeader.propTypes = {
+MainHeader.propTypes = {
   onPress1: PropTypes.func,
   onPress2: PropTypes.func,
-  source1: PropTypes.any,
+  headerName: PropTypes.string,
 }
 
-export default DetailsHeader;
+export default MainHeader;

@@ -1,26 +1,42 @@
-import React from 'react'
-import { TouchableOpacity, Image } from 'react-native'
-import PropTypes from 'prop-types'
+/**
+ * Button component
+ * Renders a button and calls a function passed via onPress prop once tapped
+ */
 
-import styles from './styles'
+import React, { Component } from 'react';
+import {
+  StyleSheet,       // CSS-like styles
+  Text,             // Renders text
+  TouchableOpacity, // Pressable container
+  View              // Container component
+} from 'react-native';
+import Colors from '../../constants/Colors';
 
-const RoundButton = (props) => {
-    const { onPress, source } = props
-
+export default class RoundButton extends Component {
+  render({ onPress } = this.props) {
     return (
-        <TouchableOpacity
-            onPress={onPress}
-            style={styles.roundButton}>
-            <Image
-                source={source}
-                style={styles.image} />
-        </TouchableOpacity>
-    )
+      <TouchableOpacity onPress={onPress}>
+        <View style={styles.button}>
+          <Text style={styles.text}>{this.props.text.toUpperCase()}</Text>
+        </View>
+      </TouchableOpacity>
+    );
+  }
 }
 
-RoundButton.propTypes = {
-    onPress: PropTypes.func,
-    source: PropTypes.any,
-}
-
-export default RoundButton
+const styles = StyleSheet.create({
+  // Button container
+  button: {
+    borderRadius: 50,         // Rounded border
+    borderWidth: 2,           // 2 point border widht
+    borderColor: Colors.primary,   // White colored border
+    paddingHorizontal: 50,    // Horizontal padding
+    paddingVertical: 10,      // Vertical padding
+  },
+  // Button text
+  text: {
+    color: Colors.primary,
+    textAlign: 'center',
+    fontFamily: 'font-bold',
+  },
+});

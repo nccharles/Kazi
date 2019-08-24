@@ -2,14 +2,14 @@ import React from 'react';
 import {
   View, TextInput, Animated, Dimensions, Text, AsyncStorage, Platform, KeyboardAvoidingView
 } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient'
 import Colors from '../constants/Colors';
-import Button from '../components/Buttons/Start';
 import styles from "./styles/style"
 import { MaterialIcons } from '@expo/vector-icons'
 import { jDesc, jobweeks } from '../constants/util';
+import RoundButton from '../components/Buttons/RoundButton';
+import MainHeader from '../components/Header/mainHeader';
 const arr = [];
-for (var i = 0; i < 2; i++) {
+for (let i = 0; i < 2; i++) {
   arr.push(i)
 };
 
@@ -68,25 +68,25 @@ export default class jobInfoScreen extends React.Component {
       console.log(error.message)
     });
   }
- 
+
   render() {
     const { description, weeks } = this.state.info
     // Inputs configs
     const inputs = [
-        {
-            placeholder: `eg: 3`,
-            line:1,
-            icon:"view-week",
-            title:"how many weeks",
-            name: 'weeks',
-            type: 'numeric',
-            value: weeks
-          },
+      {
+        placeholder: `eg: 3`,
+        line: 1,
+        icon: "view-week",
+        title: "how many weeks",
+        name: 'weeks',
+        type: 'numeric',
+        value: weeks
+      },
       {
         placeholder: `eg:[ This job is... ]`,
-        line:4,
-        icon:"info-outline",
-        title:"About this Job",
+        line: 4,
+        icon: "info-outline",
+        title: "About this Job",
         name: 'description',
         type: 'default',
         value: description
@@ -101,18 +101,18 @@ export default class jobInfoScreen extends React.Component {
             opacity: this.animatedInputValue[i], // attaching animations to the input opacity
           }}
         >
-        <View style={styles.infoWithIcon}>
+          <View style={styles.infoWithIcon}>
             <MaterialIcons
               name={a.icon}
               size={25}
-              color={Colors.primary_white} />
+              color={Colors.primary} />
             <Text style={styles.aboutText}>{a.title}</Text></View>
           <TextInput
             multiline={true}
             numberOfLines={a.line}
-            selectionColor="#fff"
+            selectionColor={Colors.primary}
             placeholder={a.placeholder}
-            placeholderTextColor="#fff"
+            placeholderTextColor={Colors.primary}
             style={styles.inputDescription}
             underlineColorAndroid={'transparent'}
             autoCapitalize='none'
@@ -129,26 +129,25 @@ export default class jobInfoScreen extends React.Component {
     });
 
     return (
-      <LinearGradient
-        colors={Colors.Swiper_gradient}
-        start={{ x: 0.5, y: 1.0 }}
-        end={{ x: 1.0, y: 0 }}
+      <View
         style={{
           position: 'absolute',
           width: '100%',
           height: '100%',
-          justifyContent: 'center',
+          justifyContent: 'space-between',
           alignItems: 'center'
         }}
       >
-
+        <MainHeader headerName="job Description"
+          onPress={() => this.props.navigation.goBack()}
+        />
         <View style={{ width: '100%', paddingHorizontal: 25 }}>
           {animatedInputs}
-          <Button text="Done" onPress={() => this._handleAdd()} />
+          <RoundButton text="Done" onPress={() => this._handleAdd()} />
         </View>
         {Platform.OS === 'android' &&
           <KeyboardAvoidingView behavior={'padding'} keyboardVerticalOffset={screenwidth / 24} />}
-      </LinearGradient>
+      </View>
     );
   }
 }
