@@ -11,7 +11,7 @@ import {
 
 import CameraRollPicker from 'react-native-camera-roll-picker';
 import NavBar, { NavButton, NavButtonText, NavTitle } from 'react-native-nav';
-import { Colors } from '../../Assets/Themes';
+import Colors from '../../constants/Colors';
 export default class CustomActions extends React.Component {
     constructor(props) {
         super(props);
@@ -81,13 +81,13 @@ export default class CustomActions extends React.Component {
                     this.setModalVisible(false);
                 }}>
                     <NavButtonText style={{
-                        color: Colors.primaryWhite,
+                        color: Colors.primary_white,
                     }}>
                         {'Cancel'}
                     </NavButtonText>
                 </NavButton>
                 <NavTitle style={{
-                    color: Colors.primaryWhite,
+                    color: Colors.primary_white,
                 }}>
                     {'Camera Roll'}
                 </NavTitle>
@@ -103,7 +103,7 @@ export default class CustomActions extends React.Component {
                     this.setImages([]);
                 }}>
                     <NavButtonText style={{
-                        color: Colors.primaryWhite,
+                        color: Colors.primary_white,
                     }}>
                         {'Send'}
                     </NavButtonText>

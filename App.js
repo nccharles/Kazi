@@ -35,10 +35,10 @@ export default class App extends React.Component {
   _loadResourcesAsync = async () => {
     return Promise.all([
       Asset.loadAsync([
-        require('./app/Assets/images/icon.png'),
-        require('./app/Assets/images/splash.png'),
-        require('./app/Assets/images/user-add.png'),
-        require('./app/Assets/images/map.png'),
+        require('./assets/images/icon.png'),
+        require('./assets/images/splash.png'),
+        require('./assets/images/user-add.png'),
+        require('./assets/images/map.png'),
       ]),
       Font.loadAsync({
         // This is the font that we are using for our tab bar
@@ -47,9 +47,9 @@ export default class App extends React.Component {
         ...Icon.MaterialIcons.font,
         // We include SpaceMono because we use it in HomeScreen.js. Feel free
         // to remove this if you are not using it in your app
-        'font-regulary': require('./app/Assets/fonts/SabonLTStd-Roman.otf'),
-        'font-bold': require('./app/Assets/fonts/SabonLTStd-Bold.otf'),
-        'font-italic': require('./app/Assets/fonts/SabonLTStd-Italic.otf'),
+        'font-regulary': require('./assets/fonts/SabonLTStd-Roman.otf'),
+        'font-bold': require('./assets/fonts/SabonLTStd-Bold.otf'),
+        'font-italic': require('./assets/fonts/SabonLTStd-Italic.otf'),
       }),
     ]);
   };

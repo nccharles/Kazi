@@ -4,7 +4,7 @@ import { TouchableOpacity } from 'react-native'
 import * as Icon from '@expo/vector-icons'
 import { LinearGradient } from 'expo-linear-gradient'
 import styles from './styles'
-import { Colors } from '../../Assets/Themes';
+import Colors from '../../constants/Colors';
 
 class ChatButton extends Component {
 
@@ -21,7 +21,7 @@ class ChatButton extends Component {
 
 
             <LinearGradient
-                colors={Colors.gradientColors}
+                colors={Colors.primary_gradient}
                 start={{ x: 1.0, y: 0.5 }}
                 end={{ x: 0, y: 0.5 }}
                 style={styles.chatbutton}
