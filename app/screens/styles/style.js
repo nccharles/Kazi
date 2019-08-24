@@ -6,7 +6,7 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 0,
-    backgroundColor: '#fff',
+    backgroundColor: Colors.primary_white,
   },
   contentContainer: {
     paddingTop: 30,
@@ -32,7 +32,7 @@ export default StyleSheet.create({
   },
   getStartedText: {
     fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
+    color: Colors.primary_gray,
     lineHeight: 24,
     textAlign: 'center',
   },
@@ -43,13 +43,13 @@ export default StyleSheet.create({
     right: 0,
     ...Platform.select({
       ios: {
-        shadowColor: 'black',
+        shadowColor: Colors.primary_black,
         shadowOffset: { height: -3 },
         shadowOpacity: 0.1,
         shadowRadius: 3,
       },
       android: {
-        elevation: 20,
+        elevation: 1,
       },
     }),
     alignItems: 'center',
@@ -80,7 +80,7 @@ export default StyleSheet.create({
     fontSize: 12
   },
   tab: {
-    elevation: 3,
+    elevation: 1,
   },
   topBit: {
     flexDirection: 'row',
@@ -88,7 +88,7 @@ export default StyleSheet.create({
     paddingBottom: 10,
     backgroundColor: Colors.primary_white,
     justifyContent: 'space-between',
-    elevation: 3
+    elevation: 1
   },
   map: {
     ...StyleSheet.absoluteFillObject
@@ -107,11 +107,11 @@ export default StyleSheet.create({
     borderRadius: 5,
     marginBottom: height * .05,
     height: height / 16,
-    borderBottomColor: Colors.primary_white,
+    borderBottomColor: Colors.primary,
     borderBottomWidth: .4,
   },
   inputStyle: {
-    color: Colors.primary_white,
+    color: Colors.primary,
     textDecorationLine: 'none',
     alignSelf: 'center',
     alignItems: 'flex-start',
@@ -123,12 +123,12 @@ export default StyleSheet.create({
     padding: 0
   },
   inputDescription: {
-    color: Colors.primary_white,
+    color: Colors.primary_black,
     marginBottom: height * .12,
     alignSelf: 'flex-start',
     width: width - 50,
     borderBottomWidth: .4,
-    borderBottomColor: Colors.primary_white,
+    borderBottomColor: Colors.primary,
     fontFamily: 'font-regulary',
   },
 
@@ -136,7 +136,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
   },
   aboutText: {
-    color: Colors.primary_white,
+    color: Colors.primary,
     fontFamily: 'font-bold',
     fontSize: width / 20
   },

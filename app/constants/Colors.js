@@ -14,6 +14,7 @@ export default {
   primary_black,
   primary_gradient: [third,secondary,primary],
   Swiper_gradient:[primary,third],
+  form_gradient:[primary_white,primary_gray],
   tintColor,
   tabIconDefault: primary_gray,
   tabIconSelected: primary,

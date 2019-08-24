@@ -2,15 +2,15 @@ import React from 'react';
 import {
   View, TextInput, Animated, Dimensions, Text, AsyncStorage, Platform, KeyboardAvoidingView
 } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient'
 import Colors from '../../constants/Colors';
-import Button from '../../components/Buttons/Start';
 import styles from "../styles/style"
 import { Entypo } from '@expo/vector-icons'
 import { userChoice, userJob, userDesc } from '../../constants/util';
 import SelectCareer from '../../components/Select/selectCareer';
+import RoundButton from '../../components/Buttons/RoundButton';
+import BackHeader from '../../components/Header/BackHeader';
 const arr = [];
-for (var i = 0; i < 2; i++) {
+for (let i=0; i < 2; i++) {
   arr.push(i)
 };
 
@@ -59,7 +59,7 @@ export default class careerScreen extends React.Component {
   _handleSignup = async () => {
     const { description, baseJob } = this.state.info
 
-    if (!description || baseJob==='Select career') return alert('Please fill all fields!')
+    if (!description || baseJob === 'Select career') return alert('Please fill all fields!')
 
     await AsyncStorage.setItem(description, userDesc)
     await AsyncStorage.setItem(userJob, baseJob)
@@ -103,9 +103,9 @@ export default class careerScreen extends React.Component {
           <TextInput
             multiline={true}
             numberOfLines={4}
-            selectionColor="#fff"
+            selectionColor={Colors.primary}
             placeholder={a.placeholder}
-            placeholderTextColor="#fff"
+            placeholderTextColor={Colors.primary}
             style={styles.inputDescription}
             underlineColorAndroid={'transparent'}
             autoCapitalize='none'
@@ -122,19 +122,18 @@ export default class careerScreen extends React.Component {
     });
 
     return (
-      <LinearGradient
-        colors={Colors.Swiper_gradient}
-        start={{ x: 0.5, y: 1.0 }}
-        end={{ x: 1.0, y: 0 }}
+      <View
         style={{
           position: 'absolute',
           width: '100%',
           height: '100%',
-          justifyContent: 'center',
+          justifyContent: 'space-between',
           alignItems: 'center'
         }}
       >
-
+        <BackHeader
+          headerName="Career & Description" onPress={() => this.props.navigation.goBack()}
+        />
         <View style={{ width: '100%', paddingHorizontal: 25 }}>
           <SelectCareer
             onPress={() => this.props.navigation.navigate('Job', { setBaseJob: this.setBaseJob })}
@@ -143,14 +142,14 @@ export default class careerScreen extends React.Component {
             <Entypo
               name='info-with-circle'
               size={25}
-              color={Colors.primary_white} />
+              color={Colors.primary} />
             <Text style={styles.aboutText}>About Yourself</Text></View>
           {animatedInputs}
-          <Button text="Continue" onPress={() => this._handleSignup()} />
+          <RoundButton text="Done" onPress={() => this._handleSignup()} />
         </View>
         {Platform.OS === 'android' &&
           <KeyboardAvoidingView behavior={'padding'} keyboardVerticalOffset={screenwidth / 24} />}
-      </LinearGradient>
+      </View>
     );
   }
 }

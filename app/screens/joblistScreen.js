@@ -1,11 +1,33 @@
 import React from "react";
 import { FlatList,TouchableOpacity } from "react-native";
 import { Text, ListItem, Left, Body,Right } from "native-base";
+import Colors from "../constants/Colors";
 export default class JobScreen extends React.Component {
   constructor() {
     super();
     this.state = {
       data: [
+        { name: "IT", header: true },
+        { name: "Software development", header: false },
+        { name: "UI designer", header: false },
+        { name: "UX Desiner", header: false },
+        { name: "Front-End developer", header: false },
+        { name: "Back-End Developer", header: false },
+        { name: "Personal Development", header: true },
+        { name: "Web Designer", header: false },
+        { name: "UX /UI Design", header: false },
+        { name: "Game Development", header: false },
+        { name: "Earn Money", header: false },
+        { name: "Marketing", header: true },
+        { name: "Social Media Influencer", header: false },
+        { name: "Ecommerce Reseller", header: false },
+        { name: "Training", header: true },
+        { name: "Yoga Training", header: false },
+        { name: "Haircut Training", header: false },
+        { name: "Mechanical Training", header: false },
+        { name: "Coding Training", header: false },
+        { name: "Music Teacher", header: false },
+        { name: "Dance Instructor", header: false },
         { name: "Business", header: true },
         { name: "Commercial Model", header: false },
         { name: "Makeup Artist", header: false },
@@ -32,27 +54,6 @@ export default class JobScreen extends React.Component {
         { name: "Event Planner", header: false },
         { name: "Antique Refurbisher", header: false },
         { name: "T-shirt Designer", header: false },
-        { name: "IT", header: true },
-        { name: "Software development", header: false },
-        { name: "UI designer", header: false },
-        { name: "UX Desiner", header: false },
-        { name: "Front-End developer", header: false },
-        { name: "Back-End Developer", header: false },
-        { name: "Personal Development", header: true },
-        { name: "Web Designer", header: false },
-        { name: "UX /UI Design", header: false },
-        { name: "Game Development", header: false },
-        { name: "Earn Money", header: false },
-        { name: "Marketing", header: true },
-        { name: "Social Media Influencer", header: false },
-        { name: "Ecommerce Reseller", header: false },
-        { name: "Training", header: true },
-        { name: "Yoga Training", header: false },
-        { name: "Haircut Training", header: false },
-        { name: "Mechanical Training", header: false },
-        { name: "Coding Training", header: false },
-        { name: "Music Teacher", header: false },
-        { name: "Dance Instructor", header: false },
       ],
       stickyHeaderIndices: []
     };
@@ -78,14 +79,12 @@ export default class JobScreen extends React.Component {
   renderItem = ({ item }) => {
     if (item.header) {
       return (
-        <ListItem itemDivider>
-          <Left />
-          <Body style={{ marginRight: 40 }}>
-            <Text style={{ fontWeight: "bold" }}>
+        <ListItem style={{ marginLeft: 0,backgroundColor:Colors.primary }}>
+          <Body style={{ marginLeft: 0 }}>
+            <Text style={{ fontFamily: "font-bold",color: Colors.primary_white }}>
               {item.name}
             </Text>
           </Body>
-          <Right />
         </ListItem>
       );
     } else if (!item.header) {
@@ -93,7 +92,7 @@ export default class JobScreen extends React.Component {
         <ListItem style={{ marginLeft: 0 }}>
           <Body>
             <TouchableOpacity onPress={() => this.goBack(item.name)}>
-            <Text>{item.name}</Text>
+            <Text style={{ fontFamily: "font-regulary",color: Colors.primary_black }}>{item.name}</Text>
             </TouchableOpacity>
           </Body>
         </ListItem>

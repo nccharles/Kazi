@@ -2,14 +2,14 @@ import React from 'react';
 import {
   View,Animated, Dimensions, AsyncStorage, Platform, KeyboardAvoidingView
 } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient'
 import { Input } from "react-native-elements";
 import Colors from '../../constants/Colors';
-import Button from '../../components/Buttons/Start';
 import styles from "../styles/style"
 import { userName, fName, lName, userEmail } from '../../constants/util';
+import RoundButton from '../../components/Buttons/RoundButton';
+import NobackHeader from '../../components/Header/NoBackHeader';
 const arr = [];
-for (var i = 0; i < 3; i++) {
+for (let i=0; i < 3; i++) {
   arr.push(i)
 };
 
@@ -107,10 +107,10 @@ export default class SignupScreen extends React.Component {
           }}
         >
           <Input
-            selectionColor="#fff"
+            selectionColor={Colors.primary}
             placeholder={a.placeholder}
-            placeholderTextColor="#fff"
-            leftIcon={{ type: 'entypo', name: a.icon, color: Colors.primary_white }}
+            placeholderTextColor={Colors.primary}
+            leftIcon={{ type: 'entypo', name: a.icon, color: Colors.primary }}
             containerStyle={styles.input}
             underlineColorAndroid={'transparent'}
             inputStyle={styles.inputStyle}
@@ -130,27 +130,24 @@ export default class SignupScreen extends React.Component {
     });
 
     return (
-      <LinearGradient
-        colors={Colors.Swiper_gradient}
-        start={{ x: 0.5, y: 1.0 }}
-        end={{ x: 1.0, y: 0 }}
+      <View
         style={{
           position: 'absolute',
           width: '100%',
           height: '100%',
-          justifyContent: 'center',
+          justifyContent: 'space-between',
           alignItems: 'center'
         }}
       >
-
+        <NobackHeader headerName="Sign up" onPress={() => this._handleSignup()}/>
         <View style={{ width: '100%', paddingHorizontal: 25 }}>
           {animatedInputs}
 
-          <Button text="Next" onPress={() => this._handleSignup()} />
+          <RoundButton text="Next" onPress={() => this._handleSignup()} />
         </View>
         {Platform.OS === 'android' &&
           <KeyboardAvoidingView behavior={'padding'} keyboardVerticalOffset={screenwidth / 24} />}
-      </LinearGradient>
+      </View>
     );
   }
 }

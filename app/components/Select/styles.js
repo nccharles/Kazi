@@ -7,9 +7,9 @@ export default StyleSheet.create({
     container: {
         flexDirection: 'row',
         alignSelf: 'flex-start',
-        color: Colors.primary_white,
+        color: Colors.primary,
         borderBottomWidth: .4,
-        borderBottomColor: Colors.primary_white,
+        borderBottomColor: Colors.primary,
         marginBottom: height * .05,
         height: height / 16,
         width: width - 50,
@@ -25,7 +25,7 @@ export default StyleSheet.create({
     buttonText: {
         fontFamily: 'font-bold',
         fontSize: width / 20,
-        color: Colors.primary_white
+        color: Colors.primary
     }
 
 })
