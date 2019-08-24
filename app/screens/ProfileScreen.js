@@ -37,7 +37,7 @@ export default class Profile extends Component {
     return (
       <ScrollView style={styles.container}>
         <View style={styles.header}></View>
-        <Image style={styles.avatar} source={require('../Assets/images/user-add.png')} />
+        <Image style={styles.avatar} source={require('../../assets/images/user-add.png')} />
         <View style={styles.body}>
           <View style={styles.bodyContent}>
             <Text style={styles.name}>{fname}, {lname}</Text>

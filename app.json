@@ -9,12 +9,12 @@
       "ios",
       "android"
     ],
-    "version": "1.1.0",
+    "version": "1.0.0",
     "orientation": "portrait",
     "primaryColor": "#227093",
-    "icon": "./app/Assets/images/icon.png",
+    "icon": "./assets/images/icon.png",
     "splash": {
-      "image": "./app/Assets/images/splash.png",
+      "image": "./assets/images/splash.png",
       "resizeMode": "cover",
       "backgroundColor": "#FFFFFF"
     },
@@ -24,7 +24,7 @@
       "checkAutomatically": "ON_ERROR_RECOVERY"
     },
     "assetBundlePatterns": [
-      "*/*"
+      "**/*"
     ],
     "ios": {
       "supportsTablet": true,
@@ -34,7 +34,7 @@
       }
     },
     "notification": {
-      "icon": "./app/Assets/images/notify.png",
+      "icon": "./assets/images/notify.png",
       "color": "#227093",
       "androidMode": "collapse",
       "androidCollapsedTitle": "#{unread_notifications} new messages"

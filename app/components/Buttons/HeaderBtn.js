@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { View, TouchableOpacity, AsyncStorage, Image } from 'react-native';
 import Toast, { DURATION } from 'react-native-easy-toast'
 import { withNavigation } from 'react-navigation';
-import logout from '../..//Assets/Icons/logout.png'
+import logout from '../..//assets/Icons/logout.png'
 import styles from './styles'
 import { userChoice } from '../../Config/constants';
-import { Colors } from '../../Assets/Themes';
+import Colors from '../../constants/Colors';
 class HeaderBtn extends Component {
     constructor(props) {
         super(props);
