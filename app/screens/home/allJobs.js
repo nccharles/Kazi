@@ -6,7 +6,6 @@ import {
   View,
 } from 'react-native';
 import styles from '../styles/style'
-import Jobs from '../../components/CustomBox/jobs';
 export default class allJobsScreen extends React.Component {
   static navigationOptions = {
     header: null,
