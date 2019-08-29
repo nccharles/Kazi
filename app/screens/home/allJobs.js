@@ -10,29 +10,6 @@ export default class allJobsScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
-  state = {
-    searchBarFocused: false
-  }
-
-  componentDidMount() {
-    this.keyboardDidShow = Keyboard.addListener('keyboardDidShow', this.keyboardDidShow)
-    this.keyboardWillShow = Keyboard.addListener('keyboardWillShow', this.keyboardWillShow)
-    this.keyboardWillHide = Keyboard.addListener('keyboardWillHide', this.keyboardWillHide)
-
-
-  }
-
-  keyboardDidShow = () => {
-    this.setState({ searchBarFocused: true })
-  }
-
-  keyboardWillShow = () => {
-    this.setState({ searchBarFocused: true })
-  }
-
-  keyboardWillHide = () => {
-    this.setState({ searchBarFocused: false })
-  }
   render() {
     return (
       <ScrollView style={styles.container}>

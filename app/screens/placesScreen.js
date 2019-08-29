@@ -1,47 +1,42 @@
 import React from "react";
-import { View } from "react-native";
+import { View, Dimensions, Text } from "react-native";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
-/*
-The component is child component for location search 
-the selected location can be stored in state variable
-*/
+import Colors from "../constants/Colors";
+const { width, height } = Dimensions.get('window');
 export default class placesScreen extends React.Component {
   constructor(props) {
     super(props);
+  }
+  goBack = Loc => {
+    const { navigation } = this.props
+    navigation.goBack();
+    const { setLocation } = navigation.state.params
+    setLocation({ JobLocation: Loc })
   }
   render() {
     return (
       <View style={{ paddingTop: 20, flex: 1 }}>
         <GooglePlacesAutocomplete
-          placeholder="Search"
+          placeholder="Search location"
           minLength={2} // minimum length of text to search
-          autoFocus={false}
+          autoFocus={true}
           returnKeyType={"search"}
           listViewDisplayed="false"
           fetchDetails={true}
           renderDescription={row =>
             row.description || row.formatted_address || row.name
           }
-          onPress={(data, details = null) => {
-            this.props.handler(data.description)
-}}
+          onPress={(data, details = null) => this.goBack(data.description)}
           getDefaultValue={() => {
             return ""; // text input default value
           }}
           query={{
-            key: "AAIzaSyArRwHRrKfyvF9zq4RRtI5NB_YNJ4Cl3Ug",
+            key: "AIzaSyAN6UG11K2foH4nOXtdr4KMmKnCGi8UQB0",
             language: "en", // language of the results
             types: "(cities)" // default: 'geocode'
           }}
-          styles={{
-            description: {
-              fontWeight: "bold"
-            },
-            predefinedPlacesDescription: {
-              color: "#1faadb"
-            }
-          }}
-          enablePoweredByContainer={true}
+
+          enablePoweredByContainer={false}
           nearbyPlacesAPI="GoogleReverseGeocoding"
           GooglePlacesSearchQuery={{
             rankby: "distance",
@@ -55,20 +50,31 @@ export default class placesScreen extends React.Component {
           styles={{
             textInputContainer: {
               backgroundColor: 'rgba(0,0,0,0)',
+              width: width,
               borderTopWidth: 0,
-              borderBottomWidth:0
+              borderBottomWidth: 0
+            },
+            description: {
+              fontFamily: 'font-bold',
             },
             textInput: {
               marginLeft: 0,
               marginRight: 0,
-              height: 38,
-              color: '#5d5d5d',
-              fontSize: 16
+              color: Colors.primary,
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              width: width,
+              padding: 10,
+              height: height / 16,
+              borderBottomWidth: 1,
+              borderBottomColor: Colors.primary,
+              fontFamily: 'font-bold',
             },
             predefinedPlacesDescription: {
-              color: '#1faadb'
+              color: Colors.primary
             },
           }}
+          currentLocation={false}
         />
       </View>
     );

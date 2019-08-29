@@ -2,9 +2,6 @@ import React from 'react';
 import {
   View, Dimensions, AsyncStorage, Platform, KeyboardAvoidingView
 } from 'react-native';
-import { Input } from "react-native-elements";
-import Colors from '../constants/Colors';
-import styles from "./styles/style"
 import moment from "moment";
 import { jName, jobdate, joblocation } from '../constants/util';
 import SelectCareer from '../components/Select/selectCareer';
@@ -12,6 +9,7 @@ import MainHeader from '../components/Header/mainHeader';
 import RoundButton from '../components/Buttons/RoundButton';
 import DateTimePicker from "react-native-modal-datetime-picker";
 import DatePicker from '../components/Select/datePicker';
+import SelectLocation from '../components/Select/selectLocation';
 const screenwidth = Dimensions.get('window').width
 export default class AddWorkScreen extends React.Component {
   static navigationOptions = {
@@ -21,7 +19,7 @@ export default class AddWorkScreen extends React.Component {
     super(props);
     this.state = {
       info: {
-        location: "",
+        location: "Location",
         datetime: "Select Date",
         baseJob: "Job type"
       },
@@ -61,7 +59,7 @@ export default class AddWorkScreen extends React.Component {
   _handleAddJob = async () => {
     const { baseJob, location, datetime } = this.state.info
 
-    if (baseJob === "Job type" || !location || datetime === "Select Date") return alert('Please all fields!')
+    if (baseJob === "Job type" || location==='Location' || datetime === "Select Date") return alert('Please all fields!')
 
     await AsyncStorage.setItem(jName, baseJob)
     await AsyncStorage.setItem(joblocation, location)
@@ -79,6 +77,16 @@ export default class AddWorkScreen extends React.Component {
       info: {
         ...state.info,
         baseJob: baseJob
+      }
+    }))
+  }
+  setLocation = async (loc) => {
+
+    const { JobLocation } = loc
+    this.setState(state => ({
+      info: {
+        ...state.info,
+        location: JobLocation
       }
     }))
   }
@@ -108,23 +116,9 @@ export default class AddWorkScreen extends React.Component {
             left={25}
             onPress={this.showDateTimePicker}
             careerText={datetime} />
-          <Input
-            selectionColor={Colors.primary}
-            placeholder="Location"
-            placeholderTextColor={Colors.primary}
-            leftIcon={{ type: 'entypo', name: "location-pin", color: Colors.primary }}
-            containerStyle={styles.input}
-            underlineColorAndroid={'transparent'}
-            inputStyle={styles.inputStyle}
-            inputContainerStyle={styles.containerStyle}
-            autoCapitalize='none'
-            keyboardType="default"
-            autoCorrect={false}
-            returnKeyType={"next"}
-            onChangeText={(input) => this._handleInput("location", input)}
-            value={location}
-            editable={true}
-          />
+        
+          <SelectLocation onPress={() => this.props.navigation.navigate('Place', { setLocation: this.setLocation })}
+            left={25} locationText={location} />
           <DateTimePicker
             isVisible={this.state.isDateTimePickerVisible}
             onConfirm={this.handleDatePicked}
