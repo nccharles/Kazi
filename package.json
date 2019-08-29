@@ -7,7 +7,7 @@
     "eject": "expo eject",
     "test": "node ./node_modules/jest/bin/jest.js --watchAll",
     "debugger": "rndebugger-open --expo",
-    "build-android": "expo build:android -t apk",    
+    "build-android": "expo build:android -t apk",
     "build-ios": "expo build:ios"
   },
   "jest": {
