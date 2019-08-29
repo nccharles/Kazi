@@ -45,11 +45,12 @@ export default class App extends React.Component {
         ...Icon.Ionicons.font,
         ...Icon.Entypo.font,
         ...Icon.MaterialIcons.font,
+        ...Icon.MaterialCommunityIcons.font,
         // We include SpaceMono because we use it in HomeScreen.js. Feel free
         // to remove this if you are not using it in your app
-        'font-regulary': require('./assets/fonts/SabonLTStd-Roman.otf'),
-        'font-bold': require('./assets/fonts/SabonLTStd-Bold.otf'),
-        'font-italic': require('./assets/fonts/SabonLTStd-Italic.otf'),
+        'font-regulary': require('./assets/fonts/Oxygen.otf'),
+        'font-bold': require('./assets/fonts/Oxygen-Bold.otf'),
+        'font-italic': require('./assets/fonts/Oxygen-Italic.otf'),
       }),
     ]);
   };

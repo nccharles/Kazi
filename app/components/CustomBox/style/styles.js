@@ -4,39 +4,58 @@ const { width, height } = Dimensions.get('window')
 
 export default StyleSheet.create({
     container: {
+        flexDirection: 'row',
+        alignSelf: 'center',
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+        borderBottomWidth: .3,
+        borderBottomColor: Colors.primary_gray,
+        marginBottom: 5,
+        paddingHorizontal: 12,
+        width: width - 20,
+    },
+    jobContainer: {
         justifyContent: 'center',
         flexDirection: 'column',
         alignSelf: 'center',
-        borderBottomWidth: .4,
-        borderBottomColor: Colors.primary,
-        margin: 10,
-        paddingHorizontal: 12,
-        width: width
+        paddingHorizontal: 2,
+        width: width - 20
     },
     body: {
-        fontFamily: 'font-bold',
-        fontSize: width / 30,
+        justifyContent: 'space-evenly',
+        alignItems: 'flex-start',
         padding: 10,
-        color: Colors.primary_gray
+        marginBottom: 5,
+        borderLeftWidth: 2,
+        marginLeft: 30,
+        borderLeftColor: Colors.primary_gray,
+        color: Colors.primary_black,
+        opacity: 0.7
+    },
+    jobDescription: {
+        fontFamily: 'font-regulary',
+        padding: 0,
+        marginBottom: 5,
+        fontSize: width / 35,
+        opacity: 0.7
     },
     top: {
         flexDirection: 'row',
-        width: width-12,
+        marginLeft: 20,
+        width: 'auto',
+        marginRight: 10,
         justifyContent: 'space-between',
         padding: 10
     },
-    dateSide:{
-        flexDirection: 'row',
-        marginRight: 10
-    },
     date: {
-        fontFamily: 'font-bold',
-        fontSize: width / 25,
-        color: Colors.secondary
+        fontFamily: 'font-italic',
+        fontSize: width / 30,
+        color: Colors.secondary,
+        opacity: 0.5
     },
     title: {
         fontFamily: 'font-bold',
-        fontSize: width / 20,
+        fontSize: width / 30,
         color: Colors.primary
     }
 
