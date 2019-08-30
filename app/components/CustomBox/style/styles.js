@@ -5,37 +5,39 @@ const { width, height } = Dimensions.get('window')
 export default StyleSheet.create({
     container: {
         flexDirection: 'row',
+        backgroundColor: Colors.primary_white,
         alignSelf: 'center',
         justifyContent: 'space-evenly',
         alignItems: 'center',
-        borderBottomWidth: .3,
+        borderBottomWidth: .2,
         borderBottomColor: Colors.primary_gray,
-        marginBottom: 5,
-        paddingHorizontal: 12,
-        width: width - 20,
+        marginBottom: .5,
+        paddingHorizontal: 20,
+        width: width,
     },
     jobContainer: {
         justifyContent: 'center',
         flexDirection: 'column',
         alignSelf: 'center',
-        paddingHorizontal: 2,
+        paddingHorizontal: 5,
         width: width - 20
     },
     body: {
-        justifyContent: 'space-evenly',
-        alignItems: 'flex-start',
-        padding: 10,
+        flexDirection: 'column',
+        alignItems: 'baseline',
+        padding: 0,
+        paddingHorizontal: 10,
         marginBottom: 5,
-        borderLeftWidth: 2,
         marginLeft: 30,
-        borderLeftColor: Colors.primary_gray,
-        color: Colors.primary_black,
-        opacity: 0.7
+        color: Colors.primary_black
     },
     jobDescription: {
         fontFamily: 'font-regulary',
-        padding: 0,
-        marginBottom: 5,
+        paddingHorizontal: 10,
+        borderLeftWidth: 2,
+        borderLeftColor: Colors.primary_gray,
+        marginLeft: -2,
+        marginBottom: 0,
         fontSize: width / 35,
         opacity: 0.7
     },
@@ -56,7 +58,33 @@ export default StyleSheet.create({
     title: {
         fontFamily: 'font-bold',
         fontSize: width / 30,
+        color: Colors.primary_black
+    },
+    Jobside: {
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+    },
+    jobTitle: {
+        fontFamily: 'font-bold',
+        fontSize: width / 35,
         color: Colors.primary
+    },
+    profile: {
+        paddingHorizontal: 5,
+        paddingLeft: 20
+    },
+    deadSide:{
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        opacity: .6,
+        padding: 0
+    },
+    deadline: {
+        color: Colors.primary,
+        fontSize: width / 35,
+        fontFamily: 'font-regulary'
     }
 
 })

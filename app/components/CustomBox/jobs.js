@@ -13,13 +13,20 @@ const Jobs = (props) => {
             <MaterialCommunityIcons
                 name='face-profile'
                 size={80}
-                color={Colors.primary} />
-                <View style={styles.jobContainer}>
-            <View style={styles.top}><Text style={styles.title}>{jobTitle}</Text><Text style={styles.date}>{Moment(dateTime).fromNow()}</Text></View>
-            <View style={styles.body}>
-            <Text style={styles.jobDescription}>{jobDescription.length <= 200 ? jobDescription : jobDescription.substring(0, 200) + "..."}</Text>
-            <Text>Deadline: 2019-12-12</Text>
-            </View>
+                color={Colors.primary} style={styles.profile} />
+            <View style={styles.jobContainer}>
+                <View style={styles.top}><Text style={styles.title}>Charles NDAYISABA</Text><Text style={styles.date}>{Moment(dateTime).fromNow()}</Text></View>
+                <View style={styles.body}>
+                    <View style={styles.Jobside}><Entypo
+                        name='briefcase'
+                        size={10}
+                        color={Colors.primary} /><Text style={styles.jobTitle}>{jobTitle}</Text></View>
+                    <Text style={styles.jobDescription}>{jobDescription.length <= 200 ? jobDescription : jobDescription.substring(0, 200) + "..."}</Text>
+                    <View style={styles.deadSide}><Entypo
+                        name='calendar'
+                        size={12}
+                        color={Colors.primary} /><Text style={styles.deadline}>Deadline: 2019-12-12</Text></View>
+                </View>
             </View>
         </TouchableOpacity>
     );
