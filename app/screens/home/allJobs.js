@@ -7,13 +7,14 @@ import {
 } from 'react-native';
 import styles from '../styles/style'
 import Jobs from '../../components/CustomBox/jobs';
+import Colors from '../../constants/Colors';
 export default class allJobsScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
   render() {
     return (
-      <ScrollView style={styles.container}>
+      <ScrollView style={[styles.container,{backgroundColor: Colors.primary_gray}]}>
       <Jobs dateTime="2019-08-20" jobDescription="WV Rwanda hereby invites all companies and firms specialized in the field to participate in the competition on open equal conditions for this pre-qualification. Interested companies registered in Rwanda are hereby invited to express their interests for one or several of the following lots. The selected vendor will work with World Vision for a period of two (2) years."
       jobTitle="Pre-Qualifalication for ICT"
       />
