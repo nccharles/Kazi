@@ -24,8 +24,7 @@ export default class App extends React.Component {
     } else {
       return (
         <View style={styles.container}>
-          <GeneralStatusBarColor backgroundColor={Colors.primary}
-      barStyle="light-content"/>
+          <GeneralStatusBarColor backgroundColor={Colors.primary} barStyle="light-content"/>
           <AppNav/>
         </View>
       );
@@ -39,6 +38,7 @@ export default class App extends React.Component {
         require('./assets/images/splash.png'),
         require('./assets/images/user-add.png'),
         require('./assets/images/map.png'),
+        require('./assets/images/job-search.jpg')
       ]),
       Font.loadAsync({
         // This is the font that we are using for our tab bar
