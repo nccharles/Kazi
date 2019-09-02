@@ -9,6 +9,7 @@ import JobScreen from '../screens/joblistScreen';
 import addWorkScreen from '../screens/addWorkScreen';
 import jobInfoScreen from '../screens/jobInfoScreen';
 import placesScreen from '../screens/placesScreen';
+import jobDetails from '../screens/jobDetails';
 const StackNavigator = createStackNavigator(
   {
     HomeScreen: {
@@ -28,6 +29,9 @@ const StackNavigator = createStackNavigator(
     },
     Place: {
       screen: placesScreen
+    },
+    Details:{
+      screen: jobDetails
     }
   }, {
     headerMode: 'none',

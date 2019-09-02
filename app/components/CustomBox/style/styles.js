@@ -11,9 +11,10 @@ export default StyleSheet.create({
         alignItems: 'center',
         borderBottomWidth: .2,
         borderBottomColor: Colors.primary_gray,
-        marginBottom: .5,
+        // marginBottom: .5,
         paddingHorizontal: 20,
         width: width,
+        elevation: 3,
     },
     jobContainer: {
         justifyContent: 'center',

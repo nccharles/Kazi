@@ -6,7 +6,7 @@ import Colors from '../../constants/Colors';
 import { Entypo, MaterialCommunityIcons } from '@expo/vector-icons'
 import styles from './style/styles';
 const Jobs = (props) => {
-    const { onPress, jobTitle, jobDescription, dateTime } = props
+    const { onPress, jobTitle, jobDescription, postedAt,deadline,user } = props
 
     return (
         <TouchableOpacity onPress={onPress} style={styles.container}>
@@ -15,7 +15,7 @@ const Jobs = (props) => {
                 size={80}
                 color={Colors.primary} style={styles.profile} />
             <View style={styles.jobContainer}>
-                <View style={styles.top}><Text style={styles.title}>Charles NDAYISABA</Text><Text style={styles.date}>{Moment(dateTime).fromNow()}</Text></View>
+                <View style={styles.top}><Text style={styles.title}>{user}</Text><Text style={styles.date}>{Moment(postedAt).fromNow()}</Text></View>
                 <View style={styles.body}>
                     <View style={styles.Jobside}><Entypo
                         name='briefcase'
@@ -25,7 +25,7 @@ const Jobs = (props) => {
                     <View style={styles.deadSide}><Entypo
                         name='calendar'
                         size={12}
-                        color={Colors.primary} /><Text style={styles.deadline}>Deadline: 2019-12-12</Text></View>
+                        color={Colors.primary} /><Text style={styles.deadline}>{deadline}</Text></View>
                 </View>
             </View>
         </TouchableOpacity>
@@ -33,8 +33,10 @@ const Jobs = (props) => {
 }
 Jobs.propTypes = {
     onPress: PropTypes.func,
+    user:PropTypes.string,
     jobTitle: PropTypes.string,
-    dateTime: PropTypes.string,
+    postedAt: PropTypes.string,
+    deadline: PropTypes.string,
     jobDescription: PropTypes.string,
 }
 export default Jobs
