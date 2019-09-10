@@ -15,7 +15,7 @@ const DatePicker = (props) => {
                 onPress={onPress}>
                 <Entypo
                     name='calendar'
-                    size={25}
+                    size={23}
                     color={Colors.primary} />
                 <Text
                     style={styles.buttonText}

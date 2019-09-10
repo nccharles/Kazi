@@ -13,8 +13,7 @@ import {
 import * as Icon from '@expo/vector-icons'
 import JobHeader from '../components/Header/jobHeader';
 import Colors from '../constants/Colors';
-const width = Dimensions.get('window').width;
-const height = Dimensions.get('window').height;
+const { width, height } = Dimensions.get('window');
 const HEADER_MAX_HEIGHT = 250;
 const HEADER_MIN_HEIGHT = 60;
 const HEADER_SCROLL_DISTANCE = HEADER_MAX_HEIGHT - HEADER_MIN_HEIGHT;
@@ -59,7 +58,7 @@ export default class jobDetails extends Component {
         }
     };
     render() {
-        const Job = this.state.Job;
+        const { Job } = this.state;
         const headerHeight = this.state.scrollY.interpolate({
             inputRange: [0, HEADER_SCROLL_DISTANCE],
             outputRange: [HEADER_MAX_HEIGHT, HEADER_MIN_HEIGHT],
@@ -129,7 +128,7 @@ export default class jobDetails extends Component {
                                 </View>
                             </View>
                             <TouchableOpacity style={styles.buttonContainer}>
-                                <Icon.MaterialCommunityIcons name="circle-edit-outline" color={Colors.primary_white} size={23} />
+                                <Icon.Entypo name="export" color={Colors.primary_white} size={23} />
                                 <Text style={styles.buttonText}>Apply Now</Text>
                             </TouchableOpacity>
                         </View>

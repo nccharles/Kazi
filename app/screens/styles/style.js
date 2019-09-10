@@ -100,8 +100,11 @@ export default StyleSheet.create({
   },
   caption: {
     flex: 1,
-    alignSelf: 'center',
+    flexDirection: "row",
     justifyContent: 'center',
+    alignItems: 'baseline',
+    paddingVertical: 8,
+    paddingLeft: 10,
   },
   input: {
     borderRadius: 5,
