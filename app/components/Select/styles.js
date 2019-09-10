@@ -14,6 +14,7 @@ export default StyleSheet.create({
         height: height / 16,
         width: width - 50,
         fontFamily: 'font-regulary',
+        opacity: 0.6
     },
     Button: {
         backgroundColor: "transparent",

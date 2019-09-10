@@ -15,7 +15,7 @@ const SelectLocation = (props) => {
                 onPress={onPress}>
                 <Entypo
                     name='location-pin'
-                    size={25}
+                    size={23}
                     color={Colors.primary} />
                 <Text
                     style={styles.buttonText}

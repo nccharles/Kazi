@@ -15,7 +15,7 @@ const SelectCareer = (props) => {
                 onPress={onPress}>
                 <Entypo
                     name='briefcase'
-                    size={25}
+                    size={23}
                     color={Colors.primary} />
                 <Text
                     style={styles.buttonText}

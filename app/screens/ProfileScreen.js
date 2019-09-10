@@ -3,12 +3,13 @@ import {
   StyleSheet,
   Text,
   View,
-  Image, AsyncStorage,ScrollView,
+  Image, AsyncStorage,ScrollView,Dimensions,
   TouchableOpacity
 } from 'react-native';
 import Colors from '../constants/Colors';
+import * as Icon from '@expo/vector-icons'
 import { fName, lName, userJob } from '../constants/util';
-
+const { width, height } = Dimensions.get('window');
 export default class Profile extends Component {
   static navigationOptions = {
     header: null
@@ -45,7 +46,8 @@ export default class Profile extends Component {
             <Text style={styles.description}> I am very passionate about {job}, strive to better myself in my career, and the development of my country.</Text>
 
             <TouchableOpacity onPress={()=>this.props.navigation.navigate('AddWork')} style={styles.buttonContainer}>
-              <Text style={styles.buttonText}>ADD WORK</Text>
+            <Icon.Entypo name="suitcase" color={Colors.primary_white} size={20} />
+              <Text style={styles.buttonText}> New Job</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -99,18 +101,21 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   buttonContainer: {
-    marginTop: 10,
-    height: 45,
+    marginVertical: 20,
+    marginRight: 10,
+    height: height / 14,
+    paddingHorizontal: 10,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 20,
-    width: 250,
-    borderRadius: 30,
-    backgroundColor: Colors.primary,
-  },
-  buttonText: {
+    alignSelf: 'flex-end',
+    width: width - 60,
+    elevation: 3,
+    borderRadius: 12,
+    backgroundColor: Colors.secondary,
+},
+buttonText: {
     color: Colors.primary_white,
     fontFamily: 'font-bold',
-  }
+}
 });
