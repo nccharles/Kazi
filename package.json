@@ -55,6 +55,7 @@
     "react-native-options-menu": "^2.0.2",
     "react-native-picker-modal-view": "^1.2.6",
     "react-native-pose": "^0.9.0",
+    "react-native-radio-buttons": "^1.0.0",
     "react-native-scrollable-tab-view": "^0.10.0",
     "react-native-searchbar": "^1.15.0",
     "react-native-svg-image": "^2.0.1",
