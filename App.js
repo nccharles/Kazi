@@ -1,17 +1,24 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { AppLoading} from 'expo';
-import { Asset} from 'expo-asset';
+import { AppLoading } from 'expo';
+import { Asset } from 'expo-asset';
 import * as Font from 'expo-font'
 import * as Icon from '@expo/vector-icons'
 import AppNav from './app/index.js'
 import Colors from './app/constants/Colors.js';
 import GeneralStatusBarColor from './app/components/StatusBar/GeneralStatusBarColor.js';
+import * as firebase from 'firebase'
+import APIKeys from './app/constants/APIKeys.js';
 export default class App extends React.Component {
-  state = {
-    isLoadingComplete: false,
-  };
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoadingComplete: false,
+    };
+    // initial firebase
+    console.log(APIKeys.FirebaseConfig)
+    if (!firebase.apps.length) { firebase.initializeApp(APIKeys.FirebaseConfig) }
+  }
   render() {
     if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
       return (
@@ -24,8 +31,8 @@ export default class App extends React.Component {
     } else {
       return (
         <View style={styles.container}>
-          <GeneralStatusBarColor backgroundColor={Colors.primary} barStyle="light-content"/>
-          <AppNav/>
+          <GeneralStatusBarColor backgroundColor={Colors.primary} barStyle="light-content" />
+          <AppNav />
         </View>
       );
     }

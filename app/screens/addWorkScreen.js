@@ -20,7 +20,7 @@ export default class AddWorkScreen extends React.Component {
     this.state = {
       info: {
         location: "Location",
-        datetime: "Select Date",
+        datetime: "Select a deadline",
         baseJob: "Job type"
       },
       isDateTimePickerVisible: false
@@ -59,12 +59,12 @@ export default class AddWorkScreen extends React.Component {
   _handleAddJob = async () => {
     const { baseJob, location, datetime } = this.state.info
 
-    if (baseJob === "Job type" || location==='Location' || datetime === "Select Date") return alert('Please all fields!')
+    if (baseJob === "Job type" || location === 'Location' || datetime === "Select a deadline") return alert('Please all fields!')
 
     await AsyncStorage.setItem(jName, baseJob)
     await AsyncStorage.setItem(joblocation, location)
     await AsyncStorage.setItem(jobdate, datetime).then(() => {
-      this.props.navigation.navigate('JobInfo')
+      this.props.navigation.navigate('JobInfo', { baseInfo: { baseJob, location, datetime } })
 
     }).catch(error => {
       console.log(error.message)
@@ -115,8 +115,8 @@ export default class AddWorkScreen extends React.Component {
           <DatePicker
             left={25}
             onPress={this.showDateTimePicker}
-            careerText={datetime} />
-        
+            Deadline={datetime} />
+
           <SelectLocation onPress={() => this.props.navigation.navigate('Place', { setLocation: this.setLocation })}
             left={25} locationText={location} />
           <DateTimePicker

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import styles from './styles'
 import Colors from '../../constants/Colors';
 const DatePicker = (props) => {
-    const { onPress, careerText,left } = props
+    const { onPress, Deadline,left } = props
 
     return (
         <View style={styles.container}>
@@ -20,7 +20,7 @@ const DatePicker = (props) => {
                 <Text
                     style={styles.buttonText}
                 >
-                    {careerText}
+                    {Deadline}
                 </Text>
             </TouchableOpacity>
         </View>
@@ -29,7 +29,7 @@ const DatePicker = (props) => {
 
 DatePicker.propTypes = {
     onPress: PropTypes.func,
-    careerText: PropTypes.string,
+    Deadline: PropTypes.string,
     left: PropTypes.number,
 }
 export default DatePicker

@@ -40,7 +40,7 @@ export default class jobDetails extends Component {
         try {
             const result = await Share.share({
                 message:
-                    `${Job.info}`,
+                    `${Job.description}`,
                 title: Job.name
             })
 
@@ -96,21 +96,21 @@ export default class jobDetails extends Component {
                                 <Icon.Entypo name="info-with-circle" color={Colors.primary} style={{ opacity: Platform.OS === 'ios' ? 1 : 0.7 }} size={23} />
                                 <View style={styles.infocontent}>
                                     <Text style={styles.infoTitle}>Job Description  </Text>
-                                    <Text style={styles.info}>{Job.info}</Text>
+                                    <Text style={styles.info}>{Job.description}</Text>
                                 </View>
                             </View>
                             <View style={styles.itemContainer}>
                                 <Icon.Entypo name="location-pin" color={Colors.primary} style={{ opacity: Platform.OS === 'ios' ? 1 : 0.7 }} size={23} />
                                 <View style={styles.infocontent}>
                                     <Text style={styles.infoTitle}>Location  </Text>
-                                    <Text style={styles.info}>{Job.Location}</Text>
+                                    <Text style={styles.info}>{Job.location}</Text>
                                 </View>
                             </View>
                             <View style={styles.itemContainer}>
                                 <Icon.MaterialCommunityIcons name="calendar-clock" color={Colors.errorBackground} style={{ opacity: Platform.OS === 'ios' ? 1 : 0.7 }} size={23} />
                                 <View style={styles.infocontent}>
                                     <Text style={[styles.infoTitle, { color: Colors.errorBackground }]}>APPLICATION DEADLINE </Text>
-                                    <Text style={styles.info}>{`${Job.date}`}</Text>
+                                    <Text style={styles.info}>{`${Job.deadline}`}</Text>
                                 </View>
                             </View>
                             <View style={styles.itemContainer}>
@@ -124,7 +124,7 @@ export default class jobDetails extends Component {
                                 <Icon.Entypo name="info-with-circle" color={Colors.primary} style={{ opacity: Platform.OS === 'ios' ? 1 : 0.7 }} size={23} />
                                 <View style={styles.infocontent}>
                                     <Text style={styles.infoTitle}>Requirements  </Text>
-                                    <Text style={styles.info}>{Job.info}</Text>
+                                    <Text style={styles.info}>{Job.requirements}</Text>
                                 </View>
                             </View>
                             <TouchableOpacity style={styles.buttonContainer}>

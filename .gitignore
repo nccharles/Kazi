@@ -1,5 +1,4 @@
-# node.js
-#
-node_modules/
+node_modules
+constants/APIKeys.js
 npm-debug.log
 yarn-error.log
