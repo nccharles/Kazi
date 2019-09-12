@@ -26,7 +26,7 @@ export default class allJobsScreen extends React.Component {
           <View key={i}>
             <Jobs postedAt={Job.date}
               onPress={() => this.props.navigation.navigate('Details', { Job: Job })}
-              deadline={Job.deadline} user={Job.user} jobDescription={Job.info}
+              deadline={Job.deadline} user={Job.user} jobDescription={Job.description}
               jobTitle={Job.name}
             />
           </View>

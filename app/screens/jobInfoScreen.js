@@ -1,19 +1,20 @@
 import React from 'react';
 import {
-  View, TextInput, Animated, Dimensions, Text, AsyncStorage, Platform, KeyboardAvoidingView
+  View, TextInput, Animated, Dimensions, ScrollView, Text, AsyncStorage, Platform, KeyboardAvoidingView
 } from 'react-native';
 import Colors from '../constants/Colors';
 import styles from "./styles/style"
 import { MaterialIcons } from '@expo/vector-icons'
-import { jDesc, jobweeks } from '../constants/util';
-import RoundButton from '../components/Buttons/RoundButton';
+import * as firebase from 'firebase'
 import MainHeader from '../components/Header/mainHeader';
+import FloatButton from '../components/Buttons/Btnfloat';
+import { userPhone, fName, lName } from '../constants/util';
 const arr = [];
 for (let i = 0; i < 2; i++) {
   arr.push(i)
 };
 
-const screenwidth = Dimensions.get('window').width
+const { width, height } = Dimensions.get('window')
 export default class jobInfoScreen extends React.Component {
   static navigationOptions = {
     header: null
@@ -21,9 +22,11 @@ export default class jobInfoScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      baseInfo: this.props.navigation.state.params.baseInfo,
       info: {
         description: "",
-        weeks: ""
+        weeks: "",
+        require: ""
       }
     }
     this.animatedInputValue = [];
@@ -55,22 +58,40 @@ export default class jobInfoScreen extends React.Component {
       }
     }));
   };
+  
   _handleAdd = async () => {
-    const { description, weeks } = this.state.info
-
-    if (!description || !weeks) return alert('Please fill all fields!')
-
-    await AsyncStorage.setItem(jDesc, description)
-    await AsyncStorage.setItem(jobweeks, weeks).then(() => {
-      this.props.navigation.navigate('HomeScreen')
-
-    }).catch(error => {
-      console.log(error.message)
-    });
+    const toDay = new Date().valueOf();
+    const { description, weeks, require } = this.state.info
+    const { location, baseJob, datetime } = this.state.baseInfo
+    const userFname = await AsyncStorage.getItem(fName)
+    const userLname = await AsyncStorage.getItem(lName)
+    const Phone = await AsyncStorage.getItem(userPhone)
+    if (!description || !weeks || !require) return alert('Please fill all fields!')
+    // insert into database
+    await firebase
+      .database()
+      .ref(`/Jobs/`)
+      .push({
+        description,
+        weeks,
+        require,
+        location,
+        baseJob,
+        deadline: datetime,
+        postedAt: toDay,
+        price: "20000",
+        userPhone: Phone,
+        type:"negotiable",
+        user:`${userFname} ${userLname}`,
+      }).then(() => {
+        this.props.navigation.navigate('HomeScreen')
+      }).catch(error => {
+        console.log(error.message)
+      });
   }
 
   render() {
-    const { description, weeks } = this.state.info
+    const { description, weeks, require } = this.state.info
     // Inputs configs
     const inputs = [
       {
@@ -86,10 +107,19 @@ export default class jobInfoScreen extends React.Component {
         placeholder: `eg:[ This job is... ]`,
         line: 4,
         icon: "info-outline",
-        title: "About this Job",
+        title: "Job Description",
         name: 'description',
         type: 'default',
         value: description
+      },
+      {
+        placeholder: `eg:[ You are eligible... ]`,
+        line: 4,
+        icon: "info-outline",
+        title: "Requirements",
+        name: 'require',
+        type: 'default',
+        value: require
       }
     ];
 
@@ -129,25 +159,22 @@ export default class jobInfoScreen extends React.Component {
     });
 
     return (
-      <View
+      <KeyboardAvoidingView keyboardVerticalOffset={width / 24}
         style={{
-          position: 'absolute',
-          width: '100%',
-          height: '100%',
-          justifyContent: 'space-between',
+          width: width,
+          paddingBottom: 12,
+          justifyContent: 'space-evenly',
           alignItems: 'center'
         }}
-      >
+        enabled>
         <MainHeader headerName="job Description"
           onPress={() => this.props.navigation.goBack()}
         />
-        <View style={{ width: '100%', paddingHorizontal: 25 }}>
+        <ScrollView style={{ width: width, paddingHorizontal: 25 }}>
           {animatedInputs}
-          <RoundButton text="Done" onPress={() => this._handleAdd()} />
-        </View>
-        {Platform.OS === 'android' &&
-          <KeyboardAvoidingView behavior={'padding'} keyboardVerticalOffset={screenwidth / 24} />}
-      </View>
+        </ScrollView>
+        <FloatButton onPress={() => this._handleAdd()} />
+      </KeyboardAvoidingView>
     );
   }
 }
