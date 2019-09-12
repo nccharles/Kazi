@@ -89,7 +89,7 @@ export default class jobDetails extends Component {
                                 <Icon.FontAwesome name="briefcase" color={Colors.primary} style={{ opacity: Platform.OS === 'ios' ? 1 : 0.7 }} size={23} />
                                 <View style={styles.infocontent}>
                                     <Text style={styles.infoTitle}>Job Name</Text>
-                                    <Text style={styles.info}>{Job.name}</Text>
+                                    <Text style={styles.info}>{Job.baseJob}</Text>
                                 </View>
                             </View>
                             <View style={styles.itemContainer}>
@@ -124,7 +124,7 @@ export default class jobDetails extends Component {
                                 <Icon.Entypo name="info-with-circle" color={Colors.primary} style={{ opacity: Platform.OS === 'ios' ? 1 : 0.7 }} size={23} />
                                 <View style={styles.infocontent}>
                                     <Text style={styles.infoTitle}>Requirements  </Text>
-                                    <Text style={styles.info}>{Job.requirements}</Text>
+                                    <Text style={styles.info}>{Job.require}</Text>
                                 </View>
                             </View>
                             <TouchableOpacity style={styles.buttonContainer}>
@@ -136,7 +136,7 @@ export default class jobDetails extends Component {
                 </ScrollView>
                 <Animated.View style={[styles.header, { height: headerHeight }]}>
                     <View style={styles.bar}>
-                        <Text style={styles.title}>{Job.name}</Text>
+                        <Text style={styles.title}>{Job.baseJob}</Text>
                     </View>
                     <Animated.Image
                         style={[

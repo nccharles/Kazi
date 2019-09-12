@@ -143,4 +143,5 @@ export default StyleSheet.create({
     fontFamily: 'font-bold',
     fontSize: width / 20
   },
+  
 });

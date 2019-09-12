@@ -1,11 +1,12 @@
 import React from 'react';
 import {
-  View, TextInput, Animated, Dimensions, ScrollView, Text, AsyncStorage, Platform, KeyboardAvoidingView
+  View, TextInput, Animated, Dimensions, TouchableWithoutFeedback, ScrollView, Text, AsyncStorage, Platform, KeyboardAvoidingView
 } from 'react-native';
 import Colors from '../constants/Colors';
 import styles from "./styles/style"
 import { MaterialIcons } from '@expo/vector-icons'
 import * as firebase from 'firebase'
+import { RadioButtons } from 'react-native-radio-buttons'
 import MainHeader from '../components/Header/mainHeader';
 import FloatButton from '../components/Buttons/Btnfloat';
 import { userPhone, fName, lName } from '../constants/util';
@@ -23,9 +24,10 @@ export default class jobInfoScreen extends React.Component {
     super(props);
     this.state = {
       baseInfo: this.props.navigation.state.params.baseInfo,
+      selectedOption: "Negotiable",
       info: {
         description: "",
-        weeks: "",
+        amount: "",
         require: ""
       }
     }
@@ -58,53 +60,69 @@ export default class jobInfoScreen extends React.Component {
       }
     }));
   };
-  
+
   _handleAdd = async () => {
     const toDay = new Date().valueOf();
-    const { description, weeks, require } = this.state.info
-    const { location, baseJob, datetime } = this.state.baseInfo
+    const { info: { description, amount, require }, selectedOption, baseInfo: { location, baseJob, datetime } } = this.state
     const userFname = await AsyncStorage.getItem(fName)
     const userLname = await AsyncStorage.getItem(lName)
     const Phone = await AsyncStorage.getItem(userPhone)
-    if (!description || !weeks || !require) return alert('Please fill all fields!')
+    if (!description || !amount || !require) return alert('Please fill all fields!')
     // insert into database
     await firebase
       .database()
       .ref(`/Jobs/`)
       .push({
         description,
-        weeks,
         require,
         location,
         baseJob,
         deadline: datetime,
         postedAt: toDay,
-        price: "20000",
+        price: amount,
         userPhone: Phone,
-        type:"negotiable",
-        user:`${userFname} ${userLname}`,
+        type: selectedOption,
+        user: `${userFname} ${userLname}`,
       }).then(() => {
         this.props.navigation.navigate('HomeScreen')
       }).catch(error => {
         console.log(error.message)
       });
   }
+  setSelectedOption = selectedOption => {
+    this.setState({
+      selectedOption
+    });
+  }
+  renderOption = (option, selected, onSelect, index) => {
+    const style = selected ? { color:Colors.secondary,backgroundColor: Colors.primary_white } : {color:Colors.primary_white};
+
+    return (
+      <TouchableWithoutFeedback onPress={onSelect} key={index}>
+        <Text style={[style,{padding: 10,borderWidth: 1,borderColor:Colors.secondary,fontFamily:'font-bold'}]}>{option}</Text>
+      </TouchableWithoutFeedback>
+    );
+  }
 
   render() {
-    const { description, weeks, require } = this.state.info
+    const { description, amount, require } = this.state.info
+    const options = [
+      "Negotiable",
+      "No negotiable"
+    ];
     // Inputs configs
     const inputs = [
       {
-        placeholder: `eg: 3`,
+        placeholder: `eg: 1500`,
         line: 1,
-        icon: "view-week",
-        title: "how many weeks",
-        name: 'weeks',
+        icon: "monetization-on",
+        title: "Daily amount",
+        name: 'amount',
         type: 'numeric',
-        value: weeks
+        value: amount
       },
       {
-        placeholder: `eg:[ This job is... ]`,
+        placeholder: `This job is... `,
         line: 4,
         icon: "info-outline",
         title: "Job Description",
@@ -113,7 +131,7 @@ export default class jobInfoScreen extends React.Component {
         value: description
       },
       {
-        placeholder: `eg:[ You are eligible... ]`,
+        placeholder: `You are eligible... `,
         line: 4,
         icon: "info-outline",
         title: "Requirements",
@@ -172,6 +190,20 @@ export default class jobInfoScreen extends React.Component {
         />
         <ScrollView style={{ width: width, paddingHorizontal: 25 }}>
           {animatedInputs}
+          <RadioButtons
+            options={options}
+            onSelection={this.setSelectedOption}
+            selectedOption={ this.state.selectedOption }
+            renderContainer={RadioButtons.getViewContainerRenderer({
+              backgroundColor: Colors.secondary,
+              borderRadius: 12,
+              elevation: 3,
+              width: width/1.5,
+              flexDirection: 'row',
+              justifyContent: 'space-around',
+            })}
+            renderOption={this.renderOption}
+          />
         </ScrollView>
         <FloatButton onPress={() => this._handleAdd()} />
       </KeyboardAvoidingView>
