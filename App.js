@@ -16,7 +16,6 @@ export default class App extends React.Component {
       isLoadingComplete: false,
     };
     // initial firebase
-    console.log(APIKeys.FirebaseConfig)
     if (!firebase.apps.length) { firebase.initializeApp(APIKeys.FirebaseConfig) }
   }
   render() {
@@ -44,6 +43,7 @@ export default class App extends React.Component {
         require('./assets/images/icon.png'),
         require('./assets/images/splash.png'),
         require('./assets/images/user-add.png'),
+        require('./assets/images/profile-bg.jpg'),
         require('./assets/images/map.png'),
         require('./assets/images/job-search.jpg')
       ]),
@@ -76,6 +76,5 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.primary_white,
   },
 });
