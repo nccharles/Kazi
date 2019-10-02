@@ -9,7 +9,10 @@ import {
 import { LinearGradient } from 'expo-linear-gradient'
 import Colors from '../constants/Colors';
 import * as Icon from '@expo/vector-icons'
-import { fName, lName, userJob, userDesc, userEmail,userPhone } from '../constants/util';
+import ScrollableTabView from 'react-native-scrollable-tab-view'
+import { fName, lName, userJob, userDesc, userEmail, userPhone } from '../constants/util';
+import JobScreen from './home/allJobs';
+import PeopleScreen from './home/People';
 const { width, height } = Dimensions.get('window');
 export default class Profile extends Component {
   static navigationOptions = {
@@ -23,26 +26,26 @@ export default class Profile extends Component {
       lname: "",
       job: "",
       aboutMe: "",
-      email:"",
-      Phone:""
+      email: "",
+      Phone: ""
     };
   }
   async componentDidMount() {
     const fname = await AsyncStorage.getItem(fName);
     const lname = await AsyncStorage.getItem(lName);
     const job = await AsyncStorage.getItem(userJob);
-    const email= await AsyncStorage.getItem(userEmail);
+    const email = await AsyncStorage.getItem(userEmail);
     const Phone = await AsyncStorage.getItem(userPhone);
     const aboutMe = await AsyncStorage.getItem(userDesc)
     console.log(Phone)
     this.setState({
       fname,
       lname,
-      job, aboutMe,email,Phone
+      job, aboutMe, email, Phone
     })
   }
   render() {
-    const { fname, lname, job, aboutMe,email,Phone } = this.state
+    const { fname, lname, job, aboutMe, email, Phone } = this.state
     return (
       <ScrollView style={styles.container}>
         <ImageBackground style={styles.header} source={require('../../assets/images/profile-bg.jpg')} >
@@ -81,27 +84,39 @@ export default class Profile extends Component {
             <View style={styles.bio}>
               <Text style={styles.name}>{fname}, {lname}</Text>
               <View style={styles.contact}>
-              <View style={styles.email}>
-              <Icon.Ionicons
-                name={Platform.os === 'ios' ? 'ios-mail' : 'md-mail'}
-                size={15}
-                color={Colors.third} />
-                <Text style={styles.mailText}>{email} </Text>
-              </View>
-              <View style={styles.phone}>
-              <Icon.Entypo name="phone" color={Colors.warningBackground} size={15} />
-                <Text style={styles.phoneText}> {Phone}</Text>
-              </View>
+                <View style={styles.email}>
+                  <Icon.Ionicons
+                    name={Platform.os === 'ios' ? 'ios-mail' : 'md-mail'}
+                    size={15}
+                    color={Colors.third} />
+                  <Text style={styles.mailText}>{email} </Text>
+                </View>
+                <View style={styles.phone}>
+                  <Icon.Entypo name="phone" color={Colors.warningBackground} size={15} />
+                  <Text style={styles.phoneText}> {Phone}</Text>
+                </View>
               </View>
               <Text style={styles.description}> I am very passionate about {job}, strive to better myself in my career, and the development of my country.</Text>
             </View>
           </LinearGradient>
         </ImageBackground>
-        <View style={styles.body}>
-          <View style={styles.bodyContent}>
-            {/* <Text style={styles.info}>{job}</Text> */}
-          </View>
-        </View>
+        <LinearGradient
+          colors={Colors.trans_gradient}
+          start={{ x: 1.0, y: 0.5 }}
+          end={{ x: 0, y: 0.5 }} style={styles.body}>
+          <ScrollableTabView
+            initialPage={0}
+            style={styles.tab}
+            tabBarBackgroundColor={'transparent'}
+            tabBarActiveTextColor={Colors.primary_white}
+            tabBarTextStyle={{ fontWeight: 'bold', fontSize: 15 }}
+            tabBarUnderlineStyle={{ backgroundColor: 'transparent'}}
+            tabBarInactiveTextColor={Colors.trans}
+          >
+            <JobScreen tabLabel="Jobs 10   " {...this.props} />
+            <PeopleScreen tabLabel="People 3   " {...this.props} />
+          </ScrollableTabView>
+        </LinearGradient>
       </ScrollView>
     );
   }
@@ -163,35 +178,30 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     marginTop: 10,
   },
-  contact:{
+  contact: {
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'flex-start'
   },
-  email:{
+  email: {
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center'
   },
-  phone:{
+  phone: {
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center'
   },
-  mailText:{
-    color:Colors.primary_white,
+  mailText: {
+    color: Colors.primary_white,
   },
-  phoneText:{
-    color:Colors.primary_white,
+  phoneText: {
+    color: Colors.primary_white,
   },
-  
+
   body: {
-    marginTop: 40,
-  },
-  bodyContent: {
-    flex: 1,
-    alignItems: 'center',
-    padding: 30,
+    margin: 0,
   },
   name: {
     fontSize: 12,

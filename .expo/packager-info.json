@@ -1,10 +1,10 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": null,
-  "packagerPort": null,
-  "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null,
+  "expoServerPort": 19000,
+  "packagerPort": 19001,
+  "packagerPid": 7079,
+  "expoServerNgrokUrl": "https://pr-74i.nccharles.kazi.exp.direct",
+  "packagerNgrokUrl": "https://packager.pr-74i.nccharles.kazi.exp.direct",
+  "ngrokPid": 7111,
   "webpackServerPort": null
 }
