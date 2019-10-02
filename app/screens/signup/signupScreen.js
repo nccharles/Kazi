@@ -1,19 +1,20 @@
 import React from 'react';
 import {
-  View,Animated, Dimensions, AsyncStorage, Platform, KeyboardAvoidingView
+  View, Animated, Dimensions, ImageBackground, AsyncStorage, TouchableWithoutFeedback, Text, Platform, KeyboardAvoidingView
 } from 'react-native';
+import { RadioButtons } from 'react-native-radio-buttons'
 import { Input } from "react-native-elements";
 import Colors from '../../constants/Colors';
 import styles from "../styles/style"
+import { LinearGradient } from 'expo-linear-gradient'
 import { userName, fName, lName, userEmail } from '../../constants/util';
 import RoundButton from '../../components/Buttons/RoundButton';
 import NobackHeader from '../../components/Header/NoBackHeader';
 const arr = [];
-for (let i=0; i < 3; i++) {
+for (let i = 0; i < 3; i++) {
   arr.push(i)
 };
-
-const screenwidth = Dimensions.get('window').width
+const { width } = Dimensions.get('window')
 export default class SignupScreen extends React.Component {
   static navigationOptions = {
     header: null
@@ -21,6 +22,7 @@ export default class SignupScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      selectedOption: "Contractor",
       info: {
         fname: "",
         lname: "",
@@ -72,7 +74,25 @@ export default class SignupScreen extends React.Component {
       console.log(error.message)
     });
   }
+  setSelectedOption = selectedOption => {
+    this.setState({
+      selectedOption
+    });
+  }
+  renderOption = (option, selected, onSelect, index) => {
+    const style = selected ? { color: Colors.primary_white, backgroundColor: Colors.secondary } : { color: Colors.primary_white };
+
+    return (
+      <TouchableWithoutFeedback onPress={onSelect} key={index}>
+        <Text style={[style, { padding: 20, borderWidth: .6, borderRadius: 20, alignSelf: "center", borderColor: Colors.primary_white, fontFamily: 'font-bold' }]}>{option}</Text>
+      </TouchableWithoutFeedback>
+    );
+  }
   render() {
+    const options = [
+      "Contractor",
+      "Employer"
+    ];
     // Inputs configs
     const inputs = [
       {
@@ -97,7 +117,7 @@ export default class SignupScreen extends React.Component {
         value: this.state.info.email
       }
     ];
-    
+
     const animatedInputs = inputs.map((a, i) => {
       return (
         <Animated.View
@@ -139,14 +159,50 @@ export default class SignupScreen extends React.Component {
           alignItems: 'center'
         }}
       >
-        <NobackHeader headerName="Sign up" onPress={() => this._handleSignup()}/>
+        <NobackHeader headerName="Sign up" onPress={() => this._handleSignup()} />
         <View style={{ width: '100%', paddingHorizontal: 25 }}>
+
           {animatedInputs}
 
           <RoundButton text="Next" onPress={() => this._handleSignup()} />
         </View>
         {Platform.OS === 'android' &&
-          <KeyboardAvoidingView behavior={'padding'} keyboardVerticalOffset={screenwidth / 24} />}
+          <KeyboardAvoidingView behavior={'padding'} keyboardVerticalOffset={width / 24} />}
+        <View style={{
+          width: '100%',
+          borderRadius: 20,
+          height: width / 4,
+          marginBottom: 0,
+        }}>
+          <ImageBackground style={{
+            width: '100%',
+            backgroundColor: Colors.primary_white,
+            height: width / 4,
+          }} source={require('../../../assets/images/jobs.jpg')} >
+            <LinearGradient
+              colors={Colors.trans_gradient}
+              start={{ x: 1.0, y: 0.5 }}
+              end={{ x: 0, y: 0.5 }} style={{
+                width: '100%',
+                height: width / 4,
+              }}>
+              <RadioButtons
+                options={options}
+                onSelection={this.setSelectedOption}
+                selectedOption={this.state.selectedOption}
+                renderContainer={RadioButtons.getViewContainerRenderer({
+                  backgroundColor: 'transparent',
+                  width: '100%',
+                  height: width / 4,
+                  flexDirection: 'row',
+                  justifyContent: 'space-around',
+                  borderRadius: 20,
+                })}
+                renderOption={this.renderOption}
+              />
+            </LinearGradient>
+          </ImageBackground>
+        </View>
       </View>
     );
   }

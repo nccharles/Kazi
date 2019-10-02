@@ -12,16 +12,16 @@ const NobackHeader = (props) => {
   const { onPress,headerName } = props
 
   return (
-    <View style={[styles.container,{backgroundColor: Colors.primary_white,elevation: 0}]}>
+    <View style={[styles.container,{backgroundColor: Colors.primary,elevation: 0}]}>
       <View style={styles.wrapper}>
-        <Text style={[styles.title,{color:Colors.primary}]}>{headerName}  </Text>
+        <Text style={[styles.title,{color:Colors.primary_white}]}>{headerName}  </Text>
         <View style={styles.buttonContainer}>
           <TouchableOpacity
             onPress={onPress}>
             <Icon.Ionicons
             name={Platform.os==='ios'?'ios-done-all':'md-done-all'}
             size={25}
-            color={Colors.primary} />
+            color={Colors.primary_white} />
           </TouchableOpacity>
         </View>
       </View>
