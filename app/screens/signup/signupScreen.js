@@ -6,8 +6,9 @@ import { RadioButtons } from 'react-native-radio-buttons'
 import { Input } from "react-native-elements";
 import Colors from '../../constants/Colors';
 import styles from "../styles/style"
+import * as firebase from 'firebase'
 import { LinearGradient } from 'expo-linear-gradient'
-import { userName, fName, lName, userEmail } from '../../constants/util';
+import { userName, fName, lName, userEmail, userType, userPhone } from '../../constants/util';
 import RoundButton from '../../components/Buttons/RoundButton';
 import NobackHeader from '../../components/Header/NoBackHeader';
 const arr = [];
@@ -22,7 +23,7 @@ export default class SignupScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedOption: "Contractor",
+      selectedOption: "find Jobs",
       info: {
         fname: "",
         lname: "",
@@ -60,19 +61,32 @@ export default class SignupScreen extends React.Component {
     }));
   };
   _handleSignup = async () => {
-    const { fname, lname, email } = this.state.info
+    const { selectedOption, info: { fname, lname, email } } = this.state
 
     if (!fname || !lname || !email) return alert('Please all fields!')
 
     await AsyncStorage.setItem(userName, fname)
     await AsyncStorage.setItem(fName, fname)
     await AsyncStorage.setItem(lName, lname)
-    await AsyncStorage.setItem(userEmail, email).then(() => {
-      this.props.navigation.navigate('Career')
-
-    }).catch(error => {
-      console.log(error.message)
-    });
+    await AsyncStorage.setItem(userType, selectedOption)
+    await AsyncStorage.setItem(userEmail, email)
+    const userMob = await AsyncStorage.getItem(userPhone)
+    await firebase
+      .database()
+      .ref(`/Users/${userMob}`)
+      .update({
+        username: fname,
+        fname,
+        lname,
+        phone: userMob,
+        userBio:"My bio ~",
+        career:'',
+        userType: selectedOption
+      }).then(() => {
+        this.props.navigation.navigate(selectedOption === 'find Jobs' ? 'Career' : 'TabScreen')
+      }).catch(error => {
+        console.log(error.message)
+      });
   }
   setSelectedOption = selectedOption => {
     this.setState({
@@ -90,8 +104,8 @@ export default class SignupScreen extends React.Component {
   }
   render() {
     const options = [
-      "Contractor",
-      "Employer"
+      "find Jobs",
+      "add Job"
     ];
     // Inputs configs
     const inputs = [
@@ -129,7 +143,7 @@ export default class SignupScreen extends React.Component {
           <Input
             selectionColor={Colors.primary}
             placeholder={a.placeholder}
-            placeholderTextColor={Colors.primary}
+            placeholderTextColor={Colors.primary_gray}
             leftIcon={{ type: 'entypo', name: a.icon, color: Colors.primary }}
             containerStyle={styles.input}
             underlineColorAndroid={'transparent'}

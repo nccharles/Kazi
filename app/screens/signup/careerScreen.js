@@ -5,7 +5,8 @@ import {
 import Colors from '../../constants/Colors';
 import styles from "../styles/style"
 import { Entypo } from '@expo/vector-icons'
-import { userChoice, userJob, userDesc } from '../../constants/util';
+import * as firebase from 'firebase'
+import { userChoice, userJob, userDesc, userPhone } from '../../constants/util';
 import SelectCareer from '../../components/Select/selectCareer';
 import RoundButton from '../../components/Buttons/RoundButton';
 import BackHeader from '../../components/Header/BackHeader';
@@ -61,14 +62,24 @@ export default class careerScreen extends React.Component {
 
     if (!description || baseJob === 'Select career') return alert('Please fill all fields!')
 
-    await AsyncStorage.setItem(description, userDesc)
+    await AsyncStorage.setItem(userDesc, description)
     await AsyncStorage.setItem(userJob, baseJob)
+    const userMob = await AsyncStorage.getItem(userPhone)
+    await firebase
+    .database()
+    .ref(`/Users/${userMob}`)
+    .update({
+      userBio:userDesc,
+      career:baseJob,
+    }).then(async() => {
     await AsyncStorage.setItem(userChoice, 'true').then(() => {
       this.props.navigation.navigate('TabScreen')
-
     }).catch(error => {
       console.log(error.message)
     });
+  }).catch(error => {
+    console.log(error.message)
+  });
   }
   setBaseJob = async (Job) => {
 
@@ -85,7 +96,7 @@ export default class careerScreen extends React.Component {
     // Inputs configs
     const inputs = [
       {
-        placeholder: `eg:[ I am very passionate about Business, strive to better myself in my career, and development of my country. ]`,
+        placeholder: `My bio ~`,
         name: 'description',
         type: 'default',
         value: description
@@ -105,7 +116,7 @@ export default class careerScreen extends React.Component {
             numberOfLines={4}
             selectionColor={Colors.primary}
             placeholder={a.placeholder}
-            placeholderTextColor={Colors.primary}
+            placeholderTextColor={Colors.primary_gray}
             style={styles.inputDescription}
             underlineColorAndroid={'transparent'}
             autoCapitalize='none'
